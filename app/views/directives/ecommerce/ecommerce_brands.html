@@ -1,0 +1,10 @@
+<h1 class="title2">Brands</h1>
+<div class="text-center" data-ng-if="ecommerce_barnd_loading == true">
+	<img data-ng-src="images/ajax-loader.gif" >
+</div>
+<ul>
+	<li data-ng-repeat="(ecommerce_brand_id,ecommerce_brand_name) in ecommerce_brands">
+		<a data-ng-href="/#/shop/brand_view/{{ecommerce_brand_id}}">{{ecommerce_brand_name}}</a>
+	</li>
+	
+</ul>

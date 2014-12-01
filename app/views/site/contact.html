@@ -1,0 +1,88 @@
+<div class="container paddingzero">
+	<div class="container paddingzero cartback">
+		<div class="row">
+			<div class='col-md-12'>
+				<h3 class="page-header">Contact Us</h3>
+				<div id="google-map"></div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class='col-md-12'>
+				<h3 class="page-header">Available Branches</h3>
+				<div class="row">
+					<div class="col-md-4" data-ng-repeat="store in storeList">
+						<h3>{{store.Store.title}}</h3>
+	
+						<div>{{store.Store.details}}</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="col-md-12">
+					<h3 class="page-header">Send Us Email</h3>
+					<form accept-charset="utf-8" method="post" id="ContactEmailPublicContactForm" action="/demo/timeout/ContactEmails/send_mail"><div style="display:none;"><input type="hidden" value="POST" name="_method"></div>
+						<div class="col-xs-12 col-sm-4 col-md-4">
+							<div class="form-group">
+								<label for="email">Email <span class="star">*</span>
+								</label>
+								<input type="text" id="ContactEmailEmail" class="form-control" name="email"> 
+							</div>
+						</div>
+					
+						<div class="col-xs-12 col-sm-4 col-md-4">
+							<div class="form-group">
+								<label for="name">Name <span class="star">*</span>
+								</label> 
+								<input type="text" id="ContactEmailName" class="form-control" name="name"> 
+							</div>
+						</div>
+					
+						<div class="col-xs-12 col-sm-4 col-md-4">
+							<div class="form-group">
+								<label for="phone">Phone <span class="star">*</span>
+								</label>
+								<input type="text" id="ContactEmailPhone" class="form-control" name="phone"> 
+							</div>
+						</div>
+					
+						<div class="clearfix"></div>
+						
+						<div class="col-xs-12 col-sm-12 col-md-12">
+							<div class="form-group">
+								<label for="phone">Subject <span class="star">*</span>
+								</label>
+								<input type="text" id="ContactEmailSubject" class="form-control" name="subject">					
+							</div>
+						</div>
+					
+						<div class="clearfix"></div>
+						<div class="col-xs-12 col-sm-12 col-md-12">
+							<div class="form-group">
+								<label for="phone">Message <span class="star">*</span>
+								</label>
+								<textarea id="ContactEmailMessage" rows="6" cols="30" row="5" class="form-control" name="message"></textarea>					
+							</div>
+						</div>
+					
+						<div class="col-xs-12 col-sm-12 col-md-12">
+							
+							<button class="btn btn-primary" type="submit">Submit</button> 
+						</div>
+					
+					</form>
+								
+			</div>
+		
+		</div>
+	
+	</div>
+</div>
+
+<style>
+	#google-map{
+		min-height: 400px;
+	}
+</style>

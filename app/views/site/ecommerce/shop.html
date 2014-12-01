@@ -1,0 +1,58 @@
+<div class="container paddingzero blogback">
+	<div class="row">
+		<div class="col-md-12">
+			<h1 class="page-header">Shop</h1>
+		</div>
+	</div>
+			
+	<div class="row">
+		<!-- Product category and brands -->
+		<div class="col-md-3">
+			
+			<ecommercecategories></ecommercecategories>
+			
+			
+			<div class="clearfix"></div>
+			<ecommercebrands></ecommercebrands>
+			
+		</div>
+		
+		<!-- Random Products -->
+		<div class="col-md-9">
+			<div class="row">
+				<div class="text-center" data-ng-if="shop_loading == true">
+					<img  data-ng-src ="images/ajax-loader.gif">
+				</div>
+				
+				<div class="col-md-3 product_box" data-ng-repeat="product in shop_product_list">
+					<div class="product-image product_image_thumb text-center" data-ng-repeat="p_image in product.ProductImage" data-ng-if="$index == 0">
+						<img  class =" img-responsive" data-ng-src="{{shop_image_location}}{{p_image.id}}.{{p_image.extension}}" />
+					</div>
+					
+					<div class="product-title">{{product.Product.title}}</div>
+					<div class="product-details" data-ng-bind-html = "shortDescription(product.Product.description,50)"></div>
+					<div class="product_actions">
+						<a data-ng-href="/#/shop/product/details/{{product.Product.id}}">Details</a>
+					</div>
+				</div>
+				
+				<div class="clearfix"></div>
+			</div>
+		
+		</div>
+	</div>
+</div>
+
+<style>
+	.product_box{
+		height: 300px;
+	}
+	.product-title{
+		font-weight: bold;
+		font-size: 1.1em;
+	}
+
+	.product_image_thumb img{
+		height: 150px;
+	}
+</style>

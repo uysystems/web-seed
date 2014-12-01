@@ -1,0 +1,40 @@
+<div class="container paddingzero">
+	<div class="container paddingzero cartback">
+		<div class="row">
+			<div class='col-md-12'>
+				<h3 class="page-header">LookBook</h3>
+				<div class="uy-gallery uy-gallery-theme-zelibin"> 
+					<ul class="uy-gallery-data">
+						<li class="uy-data-background uy-gallery-data-active" data-ng-repeat = "data in lookbook" data-ng-if = "$index ==0" style="background-image:url({{lookbook_image_location}}{{data.Lookbook.id}}.png);"> 
+							<span>
+						 		<h1>{{data.Lookbook.title}}</h1>
+						  		<p>{{data.Lookbook.caption}}</p>
+						  		<!-- <a data-ng-href="/#/lookbook/{{data.Lookbook.id}}">Go to</a>-->
+						 	</span>
+						</li>
+						
+						<li class="uy-data-background uy-gallery-data-inactive" data-ng-repeat = "data in lookbook" data-ng-if = "$index !=0" style="background-image:url({{lookbook_image_location}}{{data.Lookbook.id}}.png);"> 
+							<span>
+						 		<h1>{{data.Lookbook.title}}</h1>
+						  		<p>{{data.Lookbook.caption}}</p>
+						  		<!--  <a data-ng-href="/#/lookbook/{{data.Lookbook.id}}">Go to</a> -->
+						 	</span>
+						</li>
+					</ul>
+					
+					<ul class="uy-gallery-control">
+						<li><button data-ng-click="slide('left')">Left</button></li>
+						<li><button data-ng-click="slide('right')">Right</button></li>
+					</ul>
+					
+					<!--bullets or no -->
+					<ul class="uy-gallery-bullets">
+						<li><button data-ng-repeat = "data in lookbook" data-ng-click="slide('{{$index}}')">1</button> </li>
+					</ul>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+</div>
+

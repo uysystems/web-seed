@@ -1,0 +1,44 @@
+
+<div class="container paddingzero blogback">
+	<div class="row">
+		<div class="col-md-12">
+			<h1 class="page-header">Blogs</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-9">
+			<!-- Loading -->
+			<div class="row" data-ng-if="blog_loading == true">
+				<div class="col-md-12 text-center">
+					<img data-ng-src="images/ajax-loader.gif">
+				</div>
+			</div>
+		
+			<div class="blog_individual_post" data-ng-repeat="ind_post in blog_post_default_list">
+				<div class="clearfix">
+					<h1 class="title">{{ind_post.Post.title}}</h1>
+					<hr>
+					<span class="pull-left">
+						By : <strong>{{getUserName(blog_writers[ind_post.Post.user])}}</strong>
+					</span>
+					<span class="pull-right">
+						<i class="glyphicon glyphicon-time"></i> :{{ind_post.Post.created}}
+					</span>
+				</div>
+				<div class="blog-details" data-ng-bind-html="textToSafeHtml(ind_post.Post.description)"></div>
+			
+			</div>
+		
+		</div>
+
+		<div class="col-md-3">
+		
+			<blogcategories></blogcategories>
+			
+			<bloglatestposts></bloglatestposts>
+		
+		</div>
+	</div>
+</div>
+
+

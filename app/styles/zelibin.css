@@ -1,0 +1,45 @@
+/*------zelibin -----*/
+.uy-gallery-theme-zelibin .uy-gallery-control li a,.uy-gallery-control li button {
+	background: none repeat scroll 0 0 #418bca;
+	color: #fff;
+	font-size: 14px;
+	padding: 5px 10px;
+	text-decoration: none;
+	border: none;
+}
+.uy-gallery-theme-zelibin .uy-gallery-bullets li a,.uy-gallery-bullets li button  {
+	background: none repeat scroll 0 0 #418bca;
+	border-radius: 50%;
+	line-height: normal;
+	text-indent: -9999px;
+	border: none;
+}
+.uy-gallery-theme-zelibin .uy-gallery-bullets li a:hover,.uy-gallery-bullets li button:hover .uy-gallery-theme-zelibin .uy-gallery-control li a:hover,.uy-gallery-control li button:hover, .uy-gallery-theme-zelibin .uy-data-background a:hover,.uy-data-background button:hover {
+	background:#236aa7;
+}
+.uy-gallery-theme-zelibin .uy-data-background h1 {
+	color: #fff;
+	font-size: 30px;
+	letter-spacing: 0.25px;
+	line-height: normal;
+	margin: 0;
+	text-transform: capitalize;
+}
+.uy-gallery-theme-zelibin .uy-data-background p{
+	color: #fff;
+	display: block;
+	font-size: 16px;
+	letter-spacing: 0.25px;
+	margin: 0;
+	text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.2);
+}
+.uy-gallery-theme-zelibin .uy-data-background a{
+	background: none repeat scroll 0 0 #418BCA;
+	color: #fff;
+	display: inline-block;
+	font-size: 14px;
+	margin: 10px 0 0;
+	padding: 10px 20px;
+	text-decoration: none;
+	text-transform: uppercase;
+}

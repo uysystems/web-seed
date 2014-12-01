@@ -1,0 +1,46 @@
+<div class="container paddingzero"> 
+	<div id="home-slider" class="carousel slide" data-ride="carousel">
+		<!-- Indicators -->
+		<ol class="carousel-indicators">
+			<li data-target="#home-slider" data-slide-to="{{$index}}" class="active" data-ng-repeat="(imgId,imgTitle) in shop_categories" data-ng-if="$index == 0 "></li>
+			<li data-target="#home-slider" data-slide-to="{{$index}}" class="" data-ng-repeat="(imgId,imgTitle) in shop_categories" data-ng-if="$index !=0 "></li>
+		</ol>
+	
+		<!-- Wrapper for slides -->
+		<div class="carousel-inner" role="listbox">
+			<div class="item active"  data-ng-repeat="(imgId,imgTitle) in shop_categories" data-ng-if="$index == 0 ">
+				<img data-ng-src="{{cat_images}}{{imgId}}.png" alt=" {{imgTitle}}">
+ 				<div class="carousel-caption">
+				      {{imgTitle}}
+				</div>
+			</div>
+			
+			<div class="item"  data-ng-repeat="(imgId,imgTitle) in shop_categories" data-ng-if="$index != 0 ">
+				<img data-ng-src="{{cat_images}}{{imgId}}.png" alt=" {{imgTitle}}">
+ 				<div class="carousel-caption">
+				      {{imgTitle}}
+				</div>
+			</div>
+	  
+	 
+		</div>
+	</div>
+
+</div>
+<div class="container bodyback2">
+	<div class="row">
+		
+		<div class="col-md-4" data-ng-repeat ="(ind,val) in homeblock" style="height: 150px; backgroud: url({{block_images}}{{val.HomeBlock.id}}.png) no-repeat">
+			<a data-ng-href ="{{val.HomeBlock.url}}">{{val.HomeBlock.title}}</a>
+		</div>
+	
+	</div>
+
+</div>
+
+
+<style>
+	.item img{
+		width: 100%;
+	}
+</style>

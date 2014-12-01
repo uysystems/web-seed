@@ -1,0 +1,152 @@
+<style>
+	.current_image{
+		height: 180px;
+	}
+	.thumb-image{
+		height: 35px;
+	}
+	
+	.product-title{
+		font-size: 2em;
+		border-bottom:1px solid #eee;
+		margin-bottom : 5px;
+	}
+	
+	.product-details p{
+		font-size: .9em;
+	}
+	
+	.description-label{
+		clear: both;
+		font-size: 1.3em;
+		border-bottom: 1px solid #eee;
+		margin-bottom:5 px;
+		margin-top : 10px;
+	}
+</style>
+
+
+
+
+<div class="container paddingzero blogback">
+	<div class="row">
+		<div class="col-md-12">
+			<h1 class="page-header">Details</h1>
+		</div>
+	</div>
+	
+	<!-- Loading -->
+	<div class="row" data-ng-if="shop_product_details_loading == true">
+		<div class="col-md-12 text-center">
+			<img data-ng-src="images/ajax-loader.gif">
+		</div>
+	</div>
+	
+	<div class="row">
+		<!-- Product images -->
+		<form data-ng-submit ="addToCart($event,$window);">
+		<div class="col-md-3">
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<div>
+						<img class = "img-responsive current_image relative"  data-ng-repeat="images in shop_product_details[0].ProductImage" data-ng-if="$index == 0" data-ng-src = "{{shop_image_location}}{{images.id}}.{{images.extension}}" />
+						<!-- data-ng-mouseout="destroyZoom()" data-ng-mousemove="uyZoom($event)" -->
+					</div>
+				</div>
+			</div>
+			 
+        	
+        	<div class="row">
+        		<div class="col-md-3" data-ng-repeat="images in shop_product_details[0].ProductImage" >
+        			<img class ="img-responsive thumb-image" data-ng-mouseover="updateThumb($event)" data-ng-src = "{{shop_image_location}}{{images.id}}.{{images.extension}}">
+        			<input type="hidden" name="cartThumbImage" data-ng-if="$index == 0" value="{{shop_image_location}}{{images.id}}.{{images.extension}}">
+        		</div>
+        	</div>
+        	
+		</div>
+		
+		<!-- InfoProducts -->
+		<div class="col-md-6">
+			<div class="row">
+				<div class="col-md-12" >
+					<div class="row">
+						<div class="col-md-12">
+							<div class="product-title">{{shop_product_details[0].Product.title}}</div>
+						</div>
+					</div>
+					
+					
+						<input type='hidden' name="product_id" value="{{shop_product_details[0].Product.id}}">
+						<input type ="hidden" name="product_title" value="{{shop_product_details[0].Product.title}}">
+						<div class="row">
+							<div class="col-md-8">
+							   <!-- 
+								<div class="product-categories">
+									<a data-ng-repeat="product_categories in shop_product_details[0].ProductCategory" data-ng-href="/#/shop/category_view/{{product_categories.category_id}}">category </a>
+								</div>
+								
+								-->
+								<div class="product-price" >
+									PRICE : 
+									<span class="product-price-holder" data-ng-model="product_price" >{{product_price}}</span> EUR
+								 	<input type="hidden" name ="cost" value ="{{product_price}}">
+								</div>
+								<div class="product-attributes clearfix">
+									<!-- product attribute loop -->
+									<div data-ng-repeat = "product_attributes in shop_product_details[0].ProductAttribute">
+										<!-- loop through all attribute -->
+										<div data-ng-repeat= "attributes in AllAttributeByType">
+											<div class="col-md-6" data-ng-if = "attributes.Attribute.id == product_attributes.attribute_id">
+												<label>{{attributes.Attribute.title}}</label>
+												<div data-ng-repeat ="att_val  in attributes.AttributeValue">
+													
+													<div class="attribute-value">
+														<div data-ng-repeat= "product_has_attr_value in product_attributes.ProductAttributeValue" data-ng-if="product_has_attr_value.attribute_value_id ==att_val.id">
+															<input data-ng-valid required class="attribute-value-for-additional-price" data-ng-click = "updateAditionalPrice('{{att_val.has_price}}')" data-additional-price = "{{product_has_attr_value.price}}" type="radio" name="attribute.{{attributes.Attribute.title}}" value="{{att_val.value}}" > {{att_val.value}}
+															<span data-ng-if="att_val.has_price == 'yes'" > + {{product_has_attr_value.price}} USD</span> 
+														</div>
+													</div>
+												</div>
+												
+											</div>
+										</div>
+									</div>
+								</div>
+								
+								<div class="clearfix">
+									<label>No of Products : </label>
+									<input type="number" class="product_quantity" name="quantity" data-ng-model ='quantity' data-ng-change="updateAditionalPrice('yes')"  min="1" required>
+								</div>
+									
+							</div>
+							
+							<div class="col-md-4 text-right">
+								<input type="submit" class="btn btn-success" value= "ADD TO CART" >
+							</div>
+						
+						</div>
+					
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-12">
+					<div class="description-label">Description</div>
+					<div class="product-details" data-ng-bind-html = "textToSafeHtml(shop_product_details[0].Product.description)"></div>
+				</div>
+			
+			</div>
+		
+		</div>
+		</form>
+		<!-- Related Products -->
+		<div class="col-md-3">
+			<div class="row">
+				<div class="col-md-12" >
+					
+				</div>
+			</div>
+		
+		</div>
+	</div>
+</div>

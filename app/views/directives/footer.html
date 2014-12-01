@@ -1,0 +1,46 @@
+<div class="container footercontainer">
+	<div class="row">
+		<div class="col-md-3 col-sm-3 col-xs-12" >
+		
+			<ul class="footul">
+				<li data-ng-repeat="menus in menu.footer">
+					<a data-ng-if="menus.Menu.type == 'content'" ng-href="/#/page/{{menus.Menu.link_data}}" >{{menus.Menu.title}}</a>
+					<a data-ng-if="menus.Menu.type != 'content'"  ng-href="/#/{{menus.Menu.link_data}}">{{menus.Menu.title}}</a>
+				</li>
+				
+			</ul>
+		</div>
+		
+		<div class="col-md-3 col-sm-3 col-xs-12">
+			<div class="socialicon">
+				<div class="col-md-8 col-md-offset-4 paddingzero">Connect with us</div>
+				<div class="col-md-8 col-md-offset-4 col-sm-10  col-xs-8 socialiconholder">
+					<div class="col-md-3 col-sm-3 col-xs-3 paddingzero siconeffect">
+						<a href="#">
+							<img src="images/facebook.png">
+						</a>
+					</div>
+					<div class="col-md-3 col-sm-3 col-xs-3 paddingzero siconeffect">
+						<a href="#">
+							<img src="images/googleplus.png"s>
+						</a>
+					</div>
+					<div class="col-md-3 col-sm-3 col-xs-3 paddingzero siconeffect">
+						<a href="#">
+							<img src="images/twitter.png">
+						</a>
+					</div>
+					<div class="col-md-3 col-sm-3 col-xs-3 paddingzero siconeffect">
+						<a href="#">
+							<img src="images/youtube.png">
+						</a>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="clearfix"></div>
+				<div class="copyrightnote">&copy;2014 TimeOut. All Rights Reserved.</div>
+			</div>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>

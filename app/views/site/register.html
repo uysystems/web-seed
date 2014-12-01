@@ -1,0 +1,82 @@
+<style>
+	.error_message{
+	color: red;
+	}
+</style>
+
+<div class="container paddingzero">
+	<div class="container paddingzero cartback">
+	
+		<div class="row" data-ng-if="register_loading == true">
+			<div class="col-md-12 text-center">
+				<img data-ng-src="images/ajax-loader.gif">
+			</div>
+		</div>
+	  <!--  -->
+		<div class="row">
+			<div class="col-lg-12">
+				<h1 class="page-header">Register</h1>
+				<div class="clearfix" >
+					<form data-ng-submit="register()" id="registraion_form">
+						<div class="col-md-6">
+							<div class="form-group">
+								<label>First Name</label>
+								<input type="text" name="first_name" class="form-control" data-validate='[{"not_empty":[{"message":"Please input your first name"}]}]' >
+							</div>
+							
+							<div class="form-group">
+								<label>Last Name</label>
+								<input type="text" name="last_name" class="form-control" data-validate='[{"not_empty":[{"message":"Please input your last name"}]}]'>
+							</div>
+							
+							<div class="form-group">
+								<label>Address Line 1</label>
+								<input type="text" name="address_line_1" class="form-control" data-validate='[{"not_empty":[{"message":"Please input your address."}]}]'>
+							</div>
+							
+							<div class="form-group">
+								<label>Address Line 2</label>
+								<input type="text" name="address_line_2" class="form-control">
+							</div>
+							
+							<div class="form-group">
+								<label>Zip Code</label>
+								<input type="text" name="zip" class="form-control" data-validate='[{"not_empty":[{"message":"Please input your zip code"}]}]' >
+							</div>
+							
+							<div class="form-group">
+								<label>Cell</label>
+								<input type="text" name="cell" class="form-control">
+							</div>
+						</div>
+						
+						<div class="col-md-6">
+							<div class="form-group">
+								<label>User name /Email</label>
+								<input type="text" name="username" class="form-control" data-validate='[{"not_empty":[{"message":"Please input your email"}]},{"email":[{"message":"Please input a valid email"}]}]'>
+							</div>
+							<div class="form-group">
+								<label>Password</label>
+								<input type="password" name="password" class="form-control" data-validate='[{"not_empty":[{"message":"Please input your password"}]}]'>
+							</div>
+							
+							<div class="form-group">
+								<label>Retype Password</label>
+								<input type="password" name="repassword" class="form-control" data-validate='[{"not_empty":[{"message":"This field is required."}]},{"compair_with":[{"options":[{"compair_field":"password"}]}, {"message":"Password does not match"}]}]' >
+							</div>
+							
+							<div class="form-group">
+								<input type="submit" class="btn btn-success" value="Register">
+								<input type="reset" class="btn btn-warning" value ="Reset">
+							</div>
+							
+							<div class="form-group">
+								Already registered ? <a data-ng-href="/#/login">Login</a>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

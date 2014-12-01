@@ -1,0 +1,29 @@
+<div class="container paddingzero blogback">
+	<div class="row">
+		<div class="col-md-12">
+			<h3 class="page-header">Branch Locations</h3>
+			<div id="google-map">Map</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12">
+			<h3 class="page-header">Available Branches</h3>
+			<div class='row'>
+				<div class="col-md-4" data-ng-repeat="store in storeList">
+					<h3>{{store.Store.title}}</h3>
+
+					<div>{{store.Store.details}}</div>
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<style>
+	#google-map{
+		min-height:400px;
+	}
+</style>

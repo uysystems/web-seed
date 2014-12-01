@@ -1,0 +1,61 @@
+
+.transition {
+	transition: all 0.1s ease-out 0s;
+	-webkit-transition: all 0.1s ease-out 0s;
+	-moz-transition: all 0.1s ease-out 0s;
+	-ms-transition: all 0.1s ease-out 0s;
+	-o-transition: all 0.1s ease-out 0s;
+}
+/*-------------- Structure---------------*/
+.uy-gallery {
+	height: auto;
+	margin: 0 auto;
+}
+.uy-gallery ul {
+	padding: 0;
+}
+.uy-gallery ul li{
+	list-style:none;
+	}
+.uy-gallery-control li, .uy-gallery-bullets li, .uy-gallery-bullets, .uy-gallery-control {
+	display: inline-block;
+}
+.uy-gallery-control, .uy-gallery-bullets {
+	margin: 5px 0;
+}
+.uy-gallery-control li a,.uy-gallery-control li button {
+	display: inline-block;
+
+}
+.uy-gallery-bullets {
+	float: right;
+}
+.uy-gallery-bullets li a,.uy-gallery-bullets li button {
+	display: inline-block;
+	height: 14px;
+	width:14px;
+}
+.uy-gallery-data {
+	height: 350px;
+}
+.uy-data-background {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	background-repeat:  no-repeat;
+	-moz-background-size: cover;
+	-ms-background-size: cover;
+	-o-background-size: cover;
+	-webkit-background-size: cover;
+	background-size: cover;
+}
+.uy-data-background span {
+	position: absolute;
+	bottom: 15%;
+	left: 5%;
+}
+
+.uy-gallery-data-inactive{
+	display: none;
+}
+

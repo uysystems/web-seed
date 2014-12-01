@@ -1,0 +1,123 @@
+<div class="container paddingzero blogback">
+	<div class="row">
+		<div class="col-md-12">
+			<h1 class="page-header">Proceed</h1>
+		</div>
+	</div>
+			
+	<div class="row">
+		<div class="col-md-6">
+				<h3>Personal Details</h3>
+				<address>
+					<strong>{{user_details.first_name}} {{user_details.last_name}}</strong><br>
+					E-mail : <a href="mailto:{{log_details.Client.username}}">{{log_details.Client.username}}</a><br>
+					<strong>Phone : {{user_details.cell}}</strong>
+				</address>
+		</div>
+		
+		<div class="col-md-6">
+				<h3>Billing details</h3>
+				<address>
+				  <strong>{{user_details.address_line_1}}</strong><br>
+				  {{user_details.address_line_2}}<br>
+				  Zip : {{user_details.zip}}
+				</address>
+		</div>
+	</div>
+	
+	<div class="row">	
+		<div class="col-md-6">
+				<h3>Shipping details</h3>
+				<strong data-ng-click="sameAsBillingAddress()" >Same as Billing address</strong><br>
+				<input data-ng-model="address_line_1" class="proceed_input" required palceholder="address line 1"> <br>
+				<input data-ng-model="address_line_2" class="proceed_input"  required palceholder="address line 2"><br>
+				<input data-ng-model="zip" class="proceed_input"  palceholder="zip" required><br>
+		</div>
+		
+		<!-- 
+		<div class="col-md-6">
+				<h3>Select Payment Methods</h3>
+				<ul class="list" >
+					<li  data-ng-repeat="(type,name) in payment_methods">
+						<input type="radio" class="proceed_input_payment" name="paymentMethod" value="{{type}}"> {{name}}
+					</li>
+				</ul>
+		</div>
+		
+		-->
+	</div>
+	
+	<!-- cart details -->
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				
+				<div class="col-md-12">
+					<div>
+						<h3>Cart Details</h3>
+					</div>
+					<div class="table-responsive">
+						<table class="table table-info">
+							<thead>
+								<tr>
+									<th>No</th>
+									<th>Image</th>
+									<th>Product</th>
+									<th>Attributes</th>
+									<th>Unit Price</th>
+									<th>Quantity</th>
+									<th>Total</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr data-ng-repeat="products in PorductsInCart ">
+									<td>{{$index+1}}</td>
+									<td><img data-ng-src="{{products.cartThumbImage}}" class="img img-responsive cart-thumb-image"></td>
+									<td>{{products.product_title}}</td>
+									<td> 
+										<ul data-ng-if="products.attributes != null" class="buy-attribute-list">
+											<li data-ng-repeat="(name,value) in products.attributes">{{name}} : {{value}}</li>
+										</ul>
+									</td>
+									<td>{{products.unitPrice}} EUR</td>
+									<td>{{products.quantity}}</td>
+									<td>{{products.cost}} EUR</td>
+							       
+								</tr>
+								<tr>
+									<td colspan="6" class="text-right" >
+										<strong>Total</strong>
+									</td>
+									<td >
+										<i class="total_cost">{{totalCost}}</i> EUR
+									</td> 
+									<td></td>
+									
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<button class="btn btn-success confirm" data-ng-click="confirmNow()">Confirm</button>
+			<button class="btn btn-success checkoout" data-ng-click="orderNow()">Pay Now</button>
+		</div>
+	</div>
+</div>
+
+<style>
+	.buy-attribute-list li{
+		list-style-type: none;
+		border: none;
+		padding: 0px;
+	}
+	
+	.cart-thumb-image{
+		margin-top :0px !important;
+		width : 100px;
+	}
+</style>

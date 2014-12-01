@@ -1,0 +1,32 @@
+
+<div class="container">
+	<div class="row">
+		<div class="navbarback">
+			<nav class="navbar navbar-default">
+				<div class="container-fluid">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse"
+							data-target="#main-menu">
+							<span class="sr-only">Menu</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+						</button>
+
+					</div>
+
+					<div class="collapse navbar-collapse" id="main-menu">
+						<ul class="nav navbar-nav" >
+							<li data-ng-repeat="menus in menu.header">
+								<a data-ng-if="menus.Menu.type == 'content'" ng-href="/#/page/{{menus.Menu.link_data}}">{{menus.Menu.title}}</a>
+								<a data-ng-if="menus.Menu.type != 'content'" ng-href="/#/{{menus.Menu.link_data}}">{{menus.Menu.title}}</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+
+		</div>
+	</div>
+</div>

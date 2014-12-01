@@ -1,0 +1,30 @@
+<div class="uy-gallery uy-gallery-theme-zelibin">
+
+	
+	
+	<ul class="uy-gallery-data">
+	 
+		<li class="uy-data-background active" data-ng-repeat ="data in gallerydata" data-ng-if="$index ==0"	style="background-image: url({{lookbook_image_location}}{{data.Lookbook.id}}.png);">
+			<span>
+				<h1>{{data.Lookbook.title}}</h1>
+				<p>{{data.Lookbook.caption}}</p> <a
+				data-ng-href="/#/lookbook/{{data.Lookbook.id}}">Go to</a>
+			</span>
+		</li>
+		
+	</ul>
+
+	<ul class="uy-gallery-control">
+		<li><button>Left</button></li>
+		<li><button>Play</button></li>
+		<li><button>Stop</button></li>
+		<li><button>Right</button></li>
+	</ul>
+
+	<ul class="uy-gallery-bullets">
+		<li><button>1</button></li>
+		<li><button>2</button></li>
+		<li><button>3</button></li>
+		<li><button>4</button></li>
+	</ul>
+</div>
