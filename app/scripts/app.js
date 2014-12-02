@@ -39,6 +39,8 @@ sp['shop_product_by_brand']		= sp['host']+'ecommerce/sites/product_list_by_brand
 sp['shop_product_details']		= sp['host']+'ecommerce/sites/product_details/';
 sp['shop_product_attributes']		= sp['host']+'ecommerce/sites/product_attribute_list/';
 sp['shop_stores']				= sp['host']+'ecommerce/sites/getStores.json';
+sp.getAttrByCatId				= sp['host']+'ecommerce/sites/getAttrByCatId.json';
+sp.getProductsByAttrFilter				= sp['host']+'ecommerce/sites/getProductsByAttrFilter.json';
 
 
 sp['shop_order']		= sp['host']+'ecommerce/sites/order.json';
