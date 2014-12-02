@@ -1,5 +1,6 @@
 <div class="container paddingzero"> 
-	<div id="home-slider" class="carousel slide" data-ride="carousel">
+	<div class="homeSlider">
+    	<div id="home-slider" class="carousel slide" data-ride="carousel">
 		<!-- Indicators -->
 		<ol class="carousel-indicators">
 			<li data-target="#home-slider" data-slide-to="{{$index}}" class="active" data-ng-repeat="(imgId,imgTitle) in shop_categories" data-ng-if="$index == 0 "></li>
@@ -25,6 +26,7 @@
 	 
 		</div>
 	</div>
+    </div>
 
 </div>
 <div class="container bodyback2">
@@ -37,10 +39,57 @@
 	</div>
 
 </div>
+<div class="container bodyback2 paddingzero">
+     <div class="col-md-4 col-sm-4 col-xs-12 paddingzero  ">
+     <div class="homeproductholder">
+         <a href="#"><img class="img-responsive" src="images/webshop.png" width="100%" /></a>
+         <a href="#"><p class="producttxt">WEBSHOP</p></a>
+         
+     </div>
+     </div>
+     <div class="col-md-4 col-sm-4 col-xs-12 paddingzero ">
+     <div class="homeproductholder">
+     <a href="#"><img class="img-responsive" src="images/blog.png" width="100%" /></a>
+     <a href="#"><p class="producttxt">BLOG</p></a>
+     </div>
+     </div>
+     <div class="col-md-4 col-sm-4 col-xs-12 paddingzero ">
+     <div class="homeproductholder">
+     <a href="#"><img class="img-responsive" src="images/contact.png" width="100%" /></a>
+     <a href="#"><p class="producttxt">CONTACT</p></a>
+     </div>
+     </div>
+     <div class="clearfix"></div>
+     <div class="col-md-4 col-sm-4 col-xs-12 paddingzero  ">
+         <div class="homeproductholder">
+             <a href="#"><img class="img-responsive" src="images/deal.png" width="100%" /></a>
+             <a href="#"><p class="producttxt">DEALS</p></a>
+         </div>
+     </div>
+     <div class="col-md-4 col-sm-4 col-xs-12 paddingzero ">
+     <div class="homeproductholder">
+     <a href="#"><img class="img-responsive" src="images/deal.png" width="100%" /></a>
+     <a href="#"><p class="producttxt">FACEBOOK</p></a>
+     </div>
+     </div>
+     <div class="col-md-4 col-sm-4 col-xs-12 paddingzero ">
+     <div class="homeproductholder">
+     <a href="#"><img class="img-responsive" src="images/lookbook.png" width="100%" /></a>
+     <a href="#"><p class="producttxt">LOOK BOOK</p></a>
+     </div>
+     </div>
+     <div class="clearfix"></div>
+     
+     <div class="sliderholder">
+       <ul id="flexiselDemo3">
+        	<li data-ng-repeat="(ind,val) in brandList"> <img data-ng-src="{{shop_brand_image_location}}{{ind}}.png"</li>
+       </ul>
+     </div>
+   </div>
 
 
 <style>
-	.item img{
+	/*.item img{
 		width: 100%;
-	}
+	}*/
 </style>
