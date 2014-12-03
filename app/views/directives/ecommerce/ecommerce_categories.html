@@ -4,6 +4,7 @@
 </div>
 
 <ul data-ng-if="ecommerce_cat_loading == false">
+
 	<li data-ng-repeat="(ecommerce_cat_id,ecommerce_cat_name) in ecommerce_categories">
 		<a data-ng-href="/#/shop/category_view/{{ecommerce_cat_id}}">{{ecommerce_cat_name}}</a>
 	</li>

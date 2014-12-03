@@ -8,7 +8,7 @@
  * Main module of the application.
  */
 var sp = new Array();
-sp['host'] 			= 'http://localhost/cms/';
+sp['host'] 			= 'http://localhost/uycms_service/';
 sp['layout']		= sp['host']+'sites/data_layout.json'
 sp['single_page']	= sp['host']+'sites/web_page_by_id/';
 
@@ -40,7 +40,7 @@ sp['shop_product_details']		= sp['host']+'ecommerce/sites/product_details/';
 sp['shop_product_attributes']		= sp['host']+'ecommerce/sites/product_attribute_list/';
 sp['shop_stores']				= sp['host']+'ecommerce/sites/getStores.json';
 sp.getAttrByCatId				= sp['host']+'ecommerce/sites/getAttrByCatId.json';
-sp.getProductsByAttrFilter				= sp['host']+'ecommerce/sites/getProductsByAttrFilter.json';
+sp.getProductsByAttrFilter		= sp['host']+'ecommerce/sites/getProductsByAttrFilter.json';
 
 
 sp['shop_order']		= sp['host']+'ecommerce/sites/order.json';

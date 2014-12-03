@@ -489,7 +489,7 @@ body:hover .loading{display:block;}
 
 
 .page-header {
-	color : #418BCA !important;
+	color :#2F363F!important;
 	font-size: 28px !important;
 	
 }
@@ -588,67 +588,11 @@ body:hover .loading{display:block;}
 }
 .uy-gallery-product-list-data p,.uy-gallery-product-list-data{
 	display:block;}
-.actions ul li{
-	padding:0 5px !important;
-	margin:0;
-	float:none;
-	width:auto;
-	box-shadow:none !important;}
-.actions ul li a{
-	display:inline-block;}
- .actions{
-	width:100%;
-	height:auto;
-	display:block;
-	overflow:hidden;}
-.actions ul{
-	padding:0;
-	display:block;}
+
 	
 /*------------------- THEME -----------------*/
-.uy-gallery-product-list-data{
-	text-align:center;}
-.uy-gallery-product-list-data li {
-    background: none repeat scroll 0 0 #fff;
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
-    margin-bottom: 15px;
-}
-.uy-gallery-product-list-data li:hover {
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
-}
 
-.uy-gallery-product-list-data h1 {
-    font-size: 24px;
-    font-weight: normal;
-    letter-spacing: 0.25px;
-    line-height: normal;
-    margin: 10px 0 0;
-    text-transform: capitalize;
-}
-.uy-gallery-product-list-data h1 a{
-	color: #222;
-	text-decoration:none;
-	}
-.uy-gallery-product-list-data h1 a:hover{
-	color:#428bca;}
-.uy-gallery-product-list-data p{
-	color: #666;
-	font-size: 14px;
-	letter-spacing: 0.25px;
-	margin: 0;
-}
-.uy-gallery-product-list-data p{
-	margin-bottom:5px 0;}
 
-.uy-gallery-product-list-data .actions ul li a{
-	color: #428bca;
-	font-size: 12px;
-	margin:0;
-	text-decoration: none;
-	text-transform: uppercase;
-}
-.uy-gallery-product-list-data .actions ul li a:hover{
-	color: #222;}
 .page-heading{
 	 border-bottom: 1px solid #ebebeb;
     color: #3a3a3a;
@@ -658,10 +602,9 @@ body:hover .loading{display:block;}
 	padding:10px 0;
 	}
 .side-bar{
-	background:#eee;
 	height:auto;
 	width:100%;
-	padding:15px;}
+	}
 .side-bar ul{
 	margin-top:10px;
 	padding:0;}
@@ -669,7 +612,7 @@ body:hover .loading{display:block;}
 	line-height:normal;
 	padding:2px 0;
 	list-style:none;}
-.side-bar ul li a {
+.side-bar ul li a,.side-bar .side-inner-box ul p a{
     color: #666;
     font-size: 15px;
     letter-spacing: 0.25px;
@@ -678,62 +621,138 @@ body:hover .loading{display:block;}
     color: #101010;
 }
 .side-bar .title2 {
-    color: #222;
-    font-size: 18px;
+    background: none repeat scroll 0 0 #333b45;
+    color: #fff;
+    font-size: 15px;
     font-weight: 500;
     margin: 0;
+    padding: 10px;
     text-transform: uppercase;
 }
-.uy-gallery-product-list-data .product-img {
+
+.homeproductholder img{
+	width:100%;
+	height:175px;}
+.side-bar .side-inner-box {
+	margin-bottom:15px;}
+.side-bar .side-inner-box ul{
+	height:150px;
+	padding:15px;
+	margin-top:0;
+	width:100%;
+	background:#eee;
+	overflow-y:auto;}
+.side-bar .side-inner-box ul p a{
+	font-weight:bold;
+	color:#222;}
+.property-list li{
+	padding:0 !important;}
+.product-box{
+	width:100%;
+	padding:10px;
+	background:#fff;
+	position:relative;
+	box-shadow:0 0 2px rgba(0,0,0,0.2);
+	margin-bottom:20px;
+	height:auto;}
+.product-box:hover {
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+.product-box .product-img {
     height: 275px;
     line-height: 275px;
     overflow: hidden;
     width: 100%;
 }
-.uy-gallery-product-list-data .product-img img{
+.product-box .product-img img{
 	vertical-align:middle;
 	max-width:100%;
 	height:auto;
 	}
-.uy-gallery-product-list-data .product-content{
+@media all and (max-width:767px){
+.product-box .product-img img{
+	margin:0 auto;
+	display:block;}
+	}
+.product-box .product-content{
+	text-align:center;
 	min-height:150px;
 	overflow:hidden;
 	padding-top:10px;
 	background:#fff;
 	width:100%;
 	}
-.homeproductholder img{
-	width:100%;
-	height:175px;}
-
-
-/*-------------------------------------- P R O G R A M ----------------------------------------------*/
-.courseSection .panel-default > .panel-heading {
-    background-color: #16a990;
-    border-color:#16a990;
-    color: #fff;
-}
-.courseSection .panel-heading{
-	border-radius:0;}
-.courseSection .panel-default > .panel-heading + .panel-collapse > .panel-body {
-    border-top-color: #fff;
-}
-.courseSection .panel-title {
-    font-weight: 500;
+.product-box .product-content h1 {
+    font-size: 20px;
+    font-weight: normal;
     letter-spacing: 0.25px;
+    line-height: normal;
+    margin: 10px 0 5px;
+    text-transform: capitalize;
 }
-.courseSection .panel-title a{
-	display:block;
+.product-box .product-content h1 a{
+	color: #222;
+	text-decoration:none;
 	}
-.courseSection .panel-group .panel{
-	border-radius:0;}
-.courseSection .panel-default {
-    border-color: #16a990;
+.product-box .product-content h1 a:hover{
+	color:#428bca;}
+.product-box .product-content p{
+	color: #666;
+	font-size: 14px;
+	letter-spacing: 0.25px;
 }
-.courseSection .panel {
-    background-color: #fff;
-    border: 1px solid #16a990;
-    border-radius: 0;
-    box-shadow:none !important;
-    margin-bottom: 20px;
+
+
+.product-box .action ul li{
+	padding-right:8px;
+	border-right:1px solid #ddd;}
+.product-box .action ul li:last-child{
+	border:none;}
+.product-box .action ul li a {
+   
+    color: #666;
+    font-size: 11px;
+    margin: 0;
+    padding-top: 20px;
+    text-decoration: none;
+    text-transform: uppercase;
 }
+.product-box .action ul li a.prdct-details{ background: url("../images/details.png") no-repeat scroll top center rgba(0, 0, 0, 0);}
+.product-box .action ul li a.prdct-wishlist{ background: url("../images/wishlist.png") no-repeat scroll top center rgba(0, 0, 0, 0);}
+.product-box .action ul li a.prdct-share{ background: url("../images/share.png") no-repeat scroll top center rgba(0, 0, 0, 0);}
+.product-box .action ul li a:hover{
+	color: #222;}
+
+/*---------------- BLOG------------------*/
+.common-aside ul{
+	height:auto !important;}
+.common-aside ul li a{
+	text-shadow:none !important;}
+.blog-details{
+	color:#666;}
+.all-brand ul{
+	margin:20px 0 0 0;}
+.all-brand ul li{
+    
+    border: medium none;
+    display: inline-block;
+    
+    margin-right: 10px;
+    
+}
+.all-brand ul li a {
+	background: none repeat scroll 0 0 #eee;
+	padding: 8px 12px;
+    color: #757575;
+	margin-bottom: 10px;
+	display:block;
+    font-size: 14px;
+    letter-spacing: 0.45px;
+    text-transform: uppercase;
+	transition:all 0.3s linear;
+}
+.all-brand ul li a:hover{
+	background:#313842;
+	text-shadow:none !important;
+	color: #fff;
+	}
