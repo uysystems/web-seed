@@ -8,6 +8,18 @@ webApp.directive('sitemainmenu',['$rootScope','$http', function ($scope,$http) {
 		
 	}).success(function(data){
 		$scope.menu =data.menu;
+		var footerMenuData = data.menu.footer;
+		var chunkedFooterMenu = new Array();
+		var i,j,temparray,chunk = 3;
+		for (i=0,j=footerMenuData.length; i<j; i+=chunk) {
+		    temparray = footerMenuData.slice(i,i+chunk);
+		    chunkedFooterMenu.push(temparray)
+		    // do whatever
+		}
+		//console.log(chunkedFooterMenu)
+		$scope.menuFooter = chunkedFooterMenu
+		
+		
 	}).error(function(status){
 		$scope.error_message = 'Network Error occured. Please reload page.';
 	})

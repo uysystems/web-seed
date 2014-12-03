@@ -1,50 +1,27 @@
 <div class="container footercontainer">
 	<div class="row">
-		<div class="col-md-3 col-sm-3 col-xs-12" >
+		<div class="col-md-3 col-sm-3 col-xs-12" data-ng-repeat="(ind,val) in menuFooter">
 		
 			<ul class="footul">
-				<li data-ng-repeat="menus in menu.footer">
-					<a data-ng-if="menus.Menu.type == 'content'" ng-href="/#/page/{{menus.Menu.link_data}}" >{{menus.Menu.title}}</a>
-					<a data-ng-if="menus.Menu.type != 'content'"  ng-href="/#/{{menus.Menu.link_data}}">{{menus.Menu.title}}</a>
+				<li data-ng-repeat="menus in val">
+					<a	data-ng-if="menus.Menu.type == 'content'"ng-href="/#/page/{{menus.Menu.link_data}}">{{menus.Menu.title}}</a>
+					<a data-ng-if="menus.Menu.type != 'content'" ng-href="/#/{{menus.Menu.link_data}}">{{menus.Menu.title}}</a>
 				</li>
-				
 			</ul>
 		</div>
-		
-        <div class="col-md-3 col-sm-3 col-xs-12" >
-		
-			<ul class="footul">
-				<li data-ng-repeat="menus in menu.footer">
-					<a data-ng-if="menus.Menu.type == 'content'" ng-href="/#/page/{{menus.Menu.link_data}}" >{{menus.Menu.title}}</a>
-					<a data-ng-if="menus.Menu.type != 'content'"  ng-href="/#/{{menus.Menu.link_data}}">{{menus.Menu.title}}</a>
-				</li>
-				
-			</ul>
-		</div>
-        
-        <div class="col-md-3 col-sm-3 col-xs-12" >
-		
-			<ul class="footul">
-				<li data-ng-repeat="menus in menu.footer">
-					<a data-ng-if="menus.Menu.type == 'content'" ng-href="/#/page/{{menus.Menu.link_data}}" >{{menus.Menu.title}}</a>
-					<a data-ng-if="menus.Menu.type != 'content'"  ng-href="/#/{{menus.Menu.link_data}}">{{menus.Menu.title}}</a>
-				</li>
-				
-			</ul>
-		</div>
-        
+
 		<div class="col-md-3 col-sm-3 col-xs-12">
 			<div class="socialicon">
-                <h3 class="pull-right">Connect with us</h3>
-<ul class="pull-right">
-	<li><a href="#"><img src="images/facebook.png"></a></li>
-    <li><a href="#"><img src="images/googleplus.png"s></a></li>
-    <li><a href="#"><img src="images/twitter.png"></a></li>
-    <li><a href="#"><img src="images/youtube.png"></a></li>
-</ul>
-<p class="copyrightnote">&copy;2014 TimeOut. All Rights Reserved.</p>
-	</div>                
+				<h3 class="pull-right">Connect with us</h3>
+				<ul class="pull-right">
+					<li><a href="#"><img src="images/facebook.png"></a></li>
+					<li><a href="#"><img src="images/googleplus.png" s></a></li>
+					<li><a href="#"><img src="images/twitter.png"></a></li>
+					<li><a href="#"><img src="images/youtube.png"></a></li>
+				</ul>
+				<p class="copyrightnote">&copy;2014 TimeOut. All Rights	Reserved.</p>
 			</div>
 		</div>
+	</div>
 
 </div>
