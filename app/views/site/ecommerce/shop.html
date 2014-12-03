@@ -1,36 +1,35 @@
-<div class="container paddingzero blogback">
-	<div class="row">
-		<div class="col-md-12">
-			<h1 class="page-header">Shop</h1>
-		</div>
-	</div>
-			
+<div class="container paddingzero">
+<div class="category-container">
+	<h1 class="page-heading">Shop</h1>			
 	<div class="row">
 		<!-- Product category and brands -->
 		<div class="col-md-3">
-			
-			<ecommercecategories></ecommercecategories>
+			<div class="side-bar">
+            
+            <ecommercecategories></ecommercecategories>
 			
 			
 			<div class="clearfix"></div>
-			<ecommercebrands></ecommercebrands>
-			
-			{{attrVal}}
-			<div class="col-md-12" data-ng-if="enableAttributeSection == 'yes'">
-				<ul data-ng-repeat="(attrId,attrVal) in attrList">
-					<li>
+            
+            <div class="" data-ng-if="enableAttributeSection == 'yes'">
+				<div data-ng-repeat="(attrId,attrVal) in attrList">
+					<div>
 						{{attrVal.Attribute.title}}
 						<div data-ng-repeat="(attrValId,attrValVal) in attrVal.AttributeValue">
 							<input type="checkbox" class="attrCheckBox" data-attrId = "{{attrVal.Attribute.id}}" data-attrValue = "{{attrValVal.value}}" data-ng-click="filterByAttr()">{{attrValVal.value}}
 						</div>
-					</li>
+					</div>
 					
-				</ul>
+				</div>
 			</div>
+			<ecommercebrands></ecommercebrands>
+            
+
 			
 		</div>
 		
 		<!-- Random Products -->
+
 		
 		<div class="col-md-9" >
 			<div class="row">
@@ -38,36 +37,38 @@
 					<img  data-ng-src ="images/ajax-loader.gif">
 				</div>
 				
-				<div class="col-md-3 product_box" data-ng-repeat="product in shop_product_list">
-					<div class="product-image product_image_thumb text-center" data-ng-repeat="p_image in product.ProductImage" data-ng-if="$index == 0">
-						<img  class =" img-responsive" data-ng-src="{{shop_image_location}}{{p_image.id}}.{{p_image.extension}}" />
-					</div>
-					
-					<div class="product-title">{{product.Product.title}}</div>
-					<div class="product-details" data-ng-bind-html = "shortDescription(product.Product.description,50)"></div>
-					<div class="product_actions">
-						<a data-ng-href="/#/shop/product/details/{{product.Product.id}}">Details</a>
-					</div>
-				</div>
+				  <ul class="uy-gallery-product-list-data">
+                    <li class="col-md-3" data-ng-repeat="product in shop_product_list"> 
+                      <div class="product-img">
+
+                         <a data-ng-href="/#/shop/product/details/{{product.Product.id}}" data-ng-repeat="p_image in product.ProductImage" data-ng-if="$index == 0">
+                        <img data-ng-src="{{shop_image_location}}{{p_image.id}}.{{p_image.extension}}" alt="{{product.Product.title}}" />
+                        </a>
+                       
+                      </div>
+                        <div class="product-content">
+                        <h1><a data-ng-href="/#/shop/product/details/{{product.Product.id}}">{{product.Product.title}}</a></h1>
+                        <p data-ng-bind-html = "shortDescription(product.Product.description,50)"></p>
+                        <div class="actions">
+                         <p class="text-center"> <a data-ng-href="/#/shop/product/details/{{product.Product.id}}">DETAILS</a></p>
+                        </div>  
+                        </div>  
+                        
+                    </li>
+                    
+                    
+                              
+            </ul>
 				
+                
 				<div class="clearfix"></div>
 			</div>
 		</div>
 		
+<<<<<<< HEAD
 		
+=======
+		</div>
+>>>>>>> cad1b50d8edc4075151b9c73a31a6439aa7ca15a
 	</div>
 </div>
-
-<style>
-	.product_box{
-		height: 300px;
-	}
-	.product-title{
-		font-weight: bold;
-		font-size: 1.1em;
-	}
-
-	.product_image_thumb img{
-		height: 150px;
-	}
-</style>
