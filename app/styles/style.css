@@ -612,11 +612,13 @@ body:hover .loading{display:block;}
 	line-height:normal;
 	padding:2px 0;
 	list-style:none;}
-.side-bar ul li a,.side-bar .side-inner-box ul p a{
+.side-bar ul li a,.side-bar .side-inner-box ul p a,.property-list label{
     color: #666;
     font-size: 15px;
     letter-spacing: 0.25px;
 }
+.property-list label{
+	font-size:14px;}
 .side-bar ul li a:hover{
     color: #101010;
 }
@@ -647,6 +649,10 @@ body:hover .loading{display:block;}
 	color:#222;}
 .property-list li{
 	padding:0 !important;}
+.property-list p{
+	font-weight:bold;
+	color:#222;
+	}
 .product-box{
 	width:100%;
 	padding:10px;
@@ -676,14 +682,14 @@ body:hover .loading{display:block;}
 	}
 .product-box .product-content{
 	text-align:center;
-	min-height:150px;
+	height:190px;
 	overflow:hidden;
 	padding-top:10px;
 	background:#fff;
 	width:100%;
 	}
 .product-box .product-content h1 {
-    font-size: 20px;
+    font-size:18px;
     font-weight: normal;
     letter-spacing: 0.25px;
     line-height: normal;
@@ -711,7 +717,7 @@ body:hover .loading{display:block;}
 .product-box .action ul li a {
    
     color: #666;
-    font-size: 11px;
+    font-size: 0.6em;
     margin: 0;
     padding-top: 20px;
     text-decoration: none;
@@ -726,6 +732,8 @@ body:hover .loading{display:block;}
 /*---------------- BLOG------------------*/
 .common-aside ul{
 	height:auto !important;}
+.common-aside ul li{
+	border:none;}
 .common-aside ul li a{
 	text-shadow:none !important;}
 .blog-details{
@@ -733,10 +741,8 @@ body:hover .loading{display:block;}
 .all-brand ul{
 	margin:20px 0 0 0;}
 .all-brand ul li{
-    
     border: medium none;
     display: inline-block;
-    
     margin-right: 10px;
     
 }
@@ -755,4 +761,22 @@ body:hover .loading{display:block;}
 	background:#313842;
 	text-shadow:none !important;
 	color: #fff;
+}
+/* -------------------------- FORM ---------------------------*/
+.form-content{
+	min-height:450px;
+	padding:50px;}
+.form-content input,.form-content textarea{
+	border-radius:0;
+	color:#666;
+	box-shadow:none;}
+.form-content input:focus,.form-content textarea:focus{
+	box-shadow:none;}
+.form-content button{
+	border-radius:0;
+	color:#fff;
 	}
+.form-content .error_message {
+    color: #f30;
+    font-size: 12px;
+}
