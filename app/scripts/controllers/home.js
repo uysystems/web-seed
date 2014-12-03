@@ -49,6 +49,7 @@ webApp.controller('HomeCtrl',['$scope','$http', function ($scope,$http) {
 		
 	}).success(function(data){
 		$scope.brandList = data.ecommerce_brands;
+		
 	})
 	
 	
@@ -57,9 +58,15 @@ webApp.controller('HomeCtrl',['$scope','$http', function ($scope,$http) {
 	$scope.$watch('brandList',function(nv,ov){
 		if(nv!=ov){
 			$scope.brandList = nv;
-console.log($scope.brandList);
+			$scope.brandAnimation();
+			
 		}
 	});
+	
+	$scope.brandAnimation = function(){
+		var dom = $('ul.horizontalSlider');
+	}
+	
 
 }]);
 

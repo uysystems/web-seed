@@ -8,7 +8,7 @@
  * Main module of the application.
  */
 var sp = new Array();
-sp['host'] 			= 'http://localhost:85/uycms_service/';
+sp['host'] 			= 'http://localhost/uycms_service/';
 sp['layout']		= sp['host']+'sites/data_layout.json'
 sp['single_page']	= sp['host']+'sites/web_page_by_id/';
 
@@ -169,5 +169,11 @@ var webApp = angular.module('webSeedApp', [
   }).config(function($locationProvider){
 	  //$locationProvider.html5Mode(true);
   })
+  
+  $(document).ready(function(){
+	  $('img').on('load',function(){
+        console.log('foo')
+	  });
+  })	
   
 

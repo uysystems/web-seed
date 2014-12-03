@@ -15,11 +15,24 @@
 			<div class="clearfix"></div>
 			<ecommercebrands></ecommercebrands>
 			
+			{{attrVal}}
+			<div class="col-md-12" data-ng-if="enableAttributeSection == 'yes'">
+				<ul data-ng-repeat="(attrId,attrVal) in attrList">
+					<li>
+						{{attrVal.Attribute.title}}
+						<div data-ng-repeat="(attrValId,attrValVal) in attrVal.AttributeValue">
+							<input type="checkbox" class="attrCheckBox" data-attrId = "{{attrVal.Attribute.id}}" data-attrValue = "{{attrValVal.value}}" data-ng-click="filterByAttr()">{{attrValVal.value}}
+						</div>
+					</li>
+					
+				</ul>
+			</div>
+			
 		</div>
 		
 		<!-- Random Products -->
 		
-		<div class="col-md-9" data-ng-if="enableAttributeSection == 'no'">
+		<div class="col-md-9" >
 			<div class="row">
 				<div class="text-center" data-ng-if="shop_loading == true">
 					<img  data-ng-src ="images/ajax-loader.gif">
@@ -41,42 +54,7 @@
 			</div>
 		</div>
 		
-		<div class="col-md-7" data-ng-if="enableAttributeSection == 'yes'">
 		
-			<div class="row">
-			
-				<div class="text-center" data-ng-if="shop_loading == true">
-					<img  data-ng-src ="images/ajax-loader.gif">
-				</div>
-				
-				<div class="col-md-3 product_box" data-ng-repeat="product in shop_product_list">
-					<div class="product-image product_image_thumb text-center" data-ng-repeat="p_image in product.ProductImage" data-ng-if="$index == 0">
-						<img  class =" img-responsive" data-ng-src="{{shop_image_location}}{{p_image.id}}.{{p_image.extension}}" />
-					</div>
-					
-					<div class="product-title">{{product.Product.title}}</div>
-					<div class="product-details" data-ng-bind-html = "shortDescription(product.Product.description,50)"></div>
-					<div class="product_actions">
-						<a data-ng-href="/#/shop/product/details/{{product.Product.id}}">Details</a>
-					</div>
-				</div>
-				
-				<div class="clearfix"></div>
-			</div>
-			
-		</div>
-		
-		<div class="col-md-2" data-ng-if="enableAttributeSection == 'yes'">
-			<div data-ng-repeat="(attrId,attrVal) in attrList">
-				<div>
-					{{attrVal.Attribute.title}}
-					<div data-ng-repeat="(attrValId,attrValVal) in attrVal.AttributeValue">
-						<input type="checkbox" class="attrCheckBox" data-attrId = "{{attrVal.Attribute.id}}" data-attrValue = "{{attrValVal.value}}" data-ng-click="filterByAttr()">{{attrValVal.value}}
-					</div>
-				</div>
-				
-			</div>
-		</div>
 	</div>
 </div>
 

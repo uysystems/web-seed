@@ -80,6 +80,7 @@ webApp.controller('ShopCtrl',['$scope','$http','$sce','$routeParams', function (
 				}
 			}
 		});
+		
 	
 	if(Object.keys(filterRules).length >0){
 		$http({
