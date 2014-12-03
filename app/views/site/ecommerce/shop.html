@@ -3,10 +3,10 @@
 	<h1 class="page-heading">Shop</h1>			
 	<div class="row">
 		<!-- Product category and brands -->
-		<div class="col-md-3">
+		<div class="col-md-3 col-sm-4">
 			<div class="side-bar">
             
-            <ecommercecategories></ecommercecategories>
+           <div class="side-inner-box"> <ecommercecategories></ecommercecategories></div>
 			
 			
 			<div class="clearfix"></div>
@@ -22,7 +22,7 @@
 				
 			</div>
 		</div>
-			<ecommercebrands></ecommercebrands>
+			<div class="side-inner-box"> <ecommercebrands></ecommercebrands></div>
             
 			
 			</div>
@@ -32,39 +32,31 @@
 		
 		
 		
-		<div class="col-md-9" >
+		<div class="col-md-9 col-sm-8" >
 		
 			<div class="row">
-			
-				<div class="text-center" data-ng-if="shop_loading == true">
-					<img  data-ng-src ="images/ajax-loader.gif">
-				</div>
-				
-				  <ul class="uy-gallery-product-list-data">
-                    <li class="col-md-3" data-ng-repeat="product in shop_product_list"> 
-                      <div class="product-img">
-
-                         <a data-ng-href="/#/shop/product/details/{{product.Product.id}}" data-ng-repeat="p_image in product.ProductImage" data-ng-if="$index == 0">
-                        <img data-ng-src="{{shop_image_location}}{{p_image.id}}.{{p_image.extension}}" alt="{{product.Product.title}}" />
+			<div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="product-box">
+             <div class="product-img">
+                         <a href="#">
+                        <img src="images/timthumb.jpg" alt="#" />
                         </a>
-                       
                       </div>
                         <div class="product-content">
-                        <h1><a data-ng-href="/#/shop/product/details/{{product.Product.id}}">{{product.Product.title}}</a></h1>
-                        <p data-ng-bind-html = "shortDescription(product.Product.description,50)"></p>
-                        <div class="actions">
-                         <p class="text-center"> <a data-ng-href="/#/shop/product/details/{{product.Product.id}}">DETAILS</a></p>
-                        </div>  
-                        </div>  
-                        
-                    </li>
-                    
-                    
-                              
-            </ul>
-				
-                
-				<div class="clearfix"></div>
+                        <h1><a data-ng-href="/#/shop/product/details/{{product.Product.id}}">PME Legend</a></h1>
+                        <p data-ng-bind-html = "shortDescription(product.Product.description,50)">PME Jeans Bare metal grey PTR970-FGW</p>
+                         <p class="product-price"> <a data-ng-href="/#/shop/product/details/{{product.Product.id}}">€109.95</a></p>
+                        </div> 
+                        <div class="action">
+                        	<ul class="list-inline text-center">
+                        	<li><a class="prdct-details" href="#">DETAILS</a></li>
+                            <li><a class="prdct-wishlist" href="#">WISHLIST</a></li>
+                            <li><a class="prdct-share" href="#">SHARE</a></li>
+                        </ul>
+                        </div> 
+            </div>
+            </div>
+			
 			</div>
 			
 		</div>
