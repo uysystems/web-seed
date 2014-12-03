@@ -72,6 +72,7 @@ webApp.controller('ShopCtrl',['$scope','$http','$sce','$routeParams', function (
 				$(val).is(':checked')
 				var attrId = $(val).attr('data-attrId');
 				var attrVal = $(val).attr('data-attrValue');
+				
 				if(angular.isUndefined(filterRules[attrId])){
 					filterRules[attrId] = new Object();
 					filterRules[attrId][ind] = attrVal
@@ -86,12 +87,13 @@ webApp.controller('ShopCtrl',['$scope','$http','$sce','$routeParams', function (
 		$http({
 			method 	: 'POST',
 			url		: sp.getProductsByAttrFilter,
-			data	: {fileterRulesQuery : filterRules},
+			data	: {filterRulesQuery : filterRules,catId : $routeParams.catid},
 			cache 	: false,
 			headers : {'content-type': 'application/x-www-form-urlencoded'}
 			
 		}).success(function(data){
-			console.log(data)
+			$scope.shop_product_list = data.ecommerce_product_list;
+			$scope.shop_loading = false;
 		});
 	}
 	//	console.log(filterRules.length)

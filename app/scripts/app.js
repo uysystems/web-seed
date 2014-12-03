@@ -30,6 +30,7 @@ sp['blog_post_single']		= sp['host']+'blog/sites/blog_single_post/';
 sp['product_image_root']		= sp['host']+'img/site/products/';
 
 sp['shop_barnds']				= sp['host']+'ecommerce/sites/brand_list.json';
+sp['shop_barnds_image']				= sp['host']+'ecommerce/sites/brand_list_image.json';
 sp['shop_barnd_tree']				= sp['host']+'ecommerce/sites/brandTree.json';
 sp['shop_category']				= sp['host']+'ecommerce/sites/category_list.json';
 sp['shop_random_product_list']	= sp['host']+'ecommerce/sites/random_product_list.json';

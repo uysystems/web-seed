@@ -22,19 +22,19 @@
 		<div class="col-md-6">
 			<div id="brand-carousel" class="carousel slide" data-ride="carousel">
 				<ol class="carousel-indicators">
-					<li data-target="#brand-carousel" data-slide-to="{{$index}}" data-ng-if= "$index == 0" class="active" data-ng-repeat="(ind,val) in brandList"></li>
-					<li data-target="#brand-carousel" data-slide-to="{{$index}}" data-ng-if= "$index != 0"  data-ng-repeat="(ind,val) in brandList"></li>
+					<li data-target="#brand-carousel" data-slide-to="{{$index}}" data-ng-if= "$index == 0" class="active" data-ng-repeat="(ind,val) in brandListImages"></li>
+					<li data-target="#brand-carousel" data-slide-to="{{$index}}" data-ng-if= "$index != 0"  data-ng-repeat="(ind,val) in brandListImages"></li>
 				</ol>
 			
 				<div class="carousel-inner" role="listbox">
-					<div class="item active" data-ng-if="$index == 0" data-ng-repeat="(ind,val) in brandList">
-						<img data-ng-src="{{shop_brand_image_location}}{{ind}}.png" alt="{{val}}" class="img img-responsive center-block">
-						<div class="carousel-caption">{{val}}</div>
+					<div class="item active" data-ng-if="$index == 0" data-ng-repeat="(ind,val) in brandListImages">
+						<img data-ng-src="{{shop_brand_image_location}}{{val.Brand.id}}.{{val.Brand.image_extension}}" alt="{{val.Brand.title}}" class="img img-responsive center-block">
+						<div class="carousel-caption">{{val.Brand.title}}</div>
 					</div>
 					
-					<div class="item"  data-ng-if="$index != 0" data-ng-repeat="(ind,val) in brandList">
-						<img src="{{shop_brand_image_location}}{{ind}}.png" alt="{{val}}" class="img img-responsive center-block" >
-						<div class="carousel-caption"><strong>{{val}}</strong></div>
+					<div class="item"  data-ng-if="$index != 0" data-ng-repeat="(ind,val) in brandListImages">
+						<img src="{{shop_brand_image_location}}{{val.Brand.id}}.{{val.Brand.image_extension}}" alt="{{val.Brand.title}}" class="img img-responsive center-block" >
+						<div class="carousel-caption"><strong>{{val.Brand.title}}</strong></div>
 					</div>
 					
 				</div>

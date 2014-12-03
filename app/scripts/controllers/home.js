@@ -43,7 +43,7 @@ webApp.controller('HomeCtrl',['$scope','$http', function ($scope,$http) {
 	//get brand list
 	$http({
 		method 	: 'get',
-		url		: sp['shop_barnds'],
+		url		: sp['shop_barnds_image'],
 		cache 	: false,
 		headers : {'content-type': 'application/x-www-form-urlencoded'}
 		
