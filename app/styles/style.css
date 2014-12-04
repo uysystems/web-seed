@@ -643,6 +643,7 @@ body:hover .loading{display:block;}
 	margin-top:0;
 	width:100%;
 	background:#eee;
+	border-bottom: 5px solid #eee;
 	overflow-y:auto;}
 .side-bar .side-inner-box ul p a{
 	font-weight:bold;
@@ -766,11 +767,11 @@ body:hover .loading{display:block;}
 .form-content{
 	min-height:450px;
 	padding:50px;}
-.form-content input,.form-content textarea{
+.form-content input,.checkout-info input,.form-content textarea,.user-review textarea{
 	border-radius:0;
 	color:#666;
 	box-shadow:none;}
-.form-content input:focus,.form-content textarea:focus{
+.form-content input:focus,.form-content textarea:focus,.checkout-info input:focus,.user-review textarea:focus{
 	box-shadow:none;}
 .form-content button{
 	border-radius:0;
@@ -780,3 +781,159 @@ body:hover .loading{display:block;}
     color: #f30;
     font-size: 12px;
 }
+/*-------------------------- PRODUCT DETAILS --------------------------*/
+.product-breadcrumb ol li{
+	border:none !important;}
+.product-breadcrumb .breadcrumb{
+	background:#fff;}
+.product-details-image{
+	width:100%;
+	height:auto;
+	border:1px solid #eee;}
+.product-details-image ul{
+	margin-top:10px;}
+.product-details-image ul li{
+	margin:0 2px;
+	border:1px solid #ddd;
+	}
+.product-details-top,.product-size,.product-quantity{
+    border-bottom: 1px solid #eee;
+    height: auto;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    width: 100%;
+}
+.product-details-top h2{
+	margin:0;
+	color: #010101;
+    font-size: 20px;
+    font-weight: bold;}
+.product-details-top .brand-name{
+	padding:10px 0;
+	color: #010101;
+	margin:0;
+    font-size: 14px;}
+.product-details-top .product-price{
+	color: #010101;
+    font-size:18px;
+    font-weight: bold;}
+.product-quantity{
+	padding-bottom:15px;}
+.product-quantity input {
+    border: 1px solid #ddd;
+    color: #666;
+    font-size: 14px;
+    height: auto;
+    padding: 5px;
+    text-align: center;
+    width: 15%;
+}
+.add-to-cart {
+    background: none repeat scroll 0 0 #428bca;
+    border-radius: 2px;
+    border-style: none none solid;
+    border-width: medium medium 3px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: normal;
+    padding: 15px 30px 10px;
+}
+.add-to-cart:hover {
+    background:#2a71af;
+    color: #fff;
+}
+
+.description-heading,.releted-heading{
+    border-bottom: 1px solid #eee;
+    color: #101010;
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-top: 15px;
+	margin-bottom:10px;
+}
+.description p {
+    color: #666;
+    font-size: 15px;
+    letter-spacing: 0.25px;
+    text-align: left !important;
+}
+.releted-heading{
+	margin-top:0;}
+.releted-product{
+	box-shadow:none;
+	border:1px solid #ddd;}
+.releted-product:hover{
+	box-shadow:none;}
+.releted-product .product-img{
+	height:135px;
+	line-height:normal;}
+.releted-product .product-img img{
+	margin-top:0 !important;}
+.product-box .product-content {
+    height: auto;
+    min-height: 110px;
+    text-align: center;
+}
+.product-box .product-content h1{
+	font-size:12px;}
+.product-box .product-content p {
+    font-size: 12px;
+    text-align: center;
+}
+@media all and (max-width:767px){
+	.releted-product .product-img{
+		height:auto;}
+}
+.cart-table .btn,.cart-btn-group .btn{
+	border-radius:0 !important;}
+.cart-table input {
+    background: none repeat scroll 0 0 #fff;
+    border: 1px solid #ddd;
+    color: #666;
+    padding: 5px;
+    text-align: center;
+    width: 70px;
+}
+.cart-btn-group .btn{
+	padding:10px 15px;
+	letter-spacing:0.25px;}
+.cart-container .page-heading{
+	padding-top:0;}
+.payment-heading{
+	color:#101010;
+	margin:0;
+	font-size:20px;
+	font-weight:bold;}
+.productSummery .table thead {
+    background: none repeat scroll 0 0 #418bca;
+    border: medium none;
+    color: #fff;}
+.productSummery h3,.shipping-info h3{
+	margin-bottom:15px;}
+.confirm,.checkoout,#confirmModal button{
+	border-radius:0;}
+.shipping-info p{
+	margin-bottom:5px;}
+.user-review{
+	margin:20px 0 0 0;
+	width:100%;
+	height:auto;}
+.user-review h3{
+	padding-bottom:5px;
+	font-size:16px;}
+.user-review textarea{
+	resize:none;}
+#confirmModal .modal-body{
+	padding:70px 15px;}
+#confirmModal.modal{
+	top:20% !important;}
+#confirmModal .modal-title {
+    color: #101010;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+#confirmModal .modal-content{
+	border-radius:0;
+	box-shadow:none !important;
+	border:none;}
