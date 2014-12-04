@@ -22,7 +22,7 @@
 								</p>
 								<div class="checkbox" data-ng-repeat="(attrValId,attrValVal) in attrVal.AttributeValue">
 									<label> 
-										<input type="checkbox" class="attrCheckBox" data-attrId="{{attrVal.Attribute.id}}" data-attrValue="{{attrValVal.value}}" data-ng-click="filterByAttr()">
+										<input type="checkbox" class="attrCheckBox" data-attrId="{{attrVal.Attribute.id}}" data-attrValue="{{attrValVal.id}}" data-ng-click="filterByAttr()">
 										{{attrValVal.value}}
 									</label>
 								</div>

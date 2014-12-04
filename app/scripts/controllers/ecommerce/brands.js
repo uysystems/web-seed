@@ -12,6 +12,20 @@ webApp.controller('ShopBrandsCtrl',['$scope','$http','$sce','$routeParams', func
 	$scope.shop_brand_image_location = sp['host']+'img/site/product_brands/';
 	
 	
+	
+	
+	$http({
+		method 	: 'get',
+		url		: sp['shop_barnds_image'],
+		cache 	: false,
+		headers : {'content-type': 'application/x-www-form-urlencoded'}
+		
+	}).success(function(data){
+		$scope.brandListImages = data.ecommerce_brands;
+	}).error(function(){
+		$scope.error_message = 'Network Error occured. Please reload page.';
+	});
+	
 	//get brand list
 	$http({
 		method 	: 'get',
@@ -25,22 +39,6 @@ webApp.controller('ShopBrandsCtrl',['$scope','$http','$sce','$routeParams', func
 		$scope.error_message = 'Network Error occured. Please reload page.';
 	});
 	
-	/*
-	//get brandTree
-	$http({
-		method 	: 'get',
-		url		: sp['shop_barnd_tree'],
-		cache 	: false,
-		headers : {'content-type': 'application/x-www-form-urlencoded'}
-		
-	}).success(function(data){
-		console.log(data)
-		//$scope.brandList = data.ecommerce_brands;
-	}).error(function(){
-		$scope.error_message = 'Network Error occured. Please reload page.';
-	});
-	*/
-	
 	//
 	$scope.$watch('brandList',function(nv,ov){
 		if(nv!=ov){
@@ -48,11 +46,13 @@ webApp.controller('ShopBrandsCtrl',['$scope','$http','$sce','$routeParams', func
 		}
 	});
 	
-	$scope.$watch('brandListAsChunk',function(nv,ov){
+	$scope.$watch('brandListImages',function(nv,ov){
 		if(nv!=ov){
-			$scope.brandListAsChunk = nv;
+			$scope.brandListImages = nv;
 		}
 	});
+	
+	
 	
 	$scope.textToSafeHtml = function(data) {
 		return $sce.trustAsHtml(data);
