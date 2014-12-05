@@ -871,7 +871,7 @@ body:hover .loading{display:block;}
 	margin-top:0 !important;}
 .product-box .product-content {
     height: auto;
-    min-height: 110px;
+    height: 130px;
     text-align: center;
 }
 .product-box .product-content h1{
