@@ -20,11 +20,27 @@ webApp.controller('ShopProceedCtrl',['$scope','$http','$sce','$routeParams','$wi
 	$scope.user_details =  JSON.parse($scope.log_details.Client.details);
 	$scope.payment_methods = new Object();
 	
-	$scope.sameAsBillingAddress = function(){
-		$scope.address_line_1 = $scope.user_details.address_line_1;
-		$scope.address_line_2 = $scope.user_details.address_line_2;
-		$scope.zip = $scope.user_details.zip;
-	}
+	
+		if($scope.sameAsBilling == 'checked'){
+			$scope.address_line_1 = $scope.user_details.address_line_1;
+			$scope.address_line_2 = $scope.user_details.address_line_2;
+			$scope.zip = $scope.user_details.zip;
+		}else{
+			
+		}
+		
+	
+	$scope.$watch('sameAsBilling',function(){
+		console.log($scope.sameAsBilling)
+		
+		if($scope.sameAsBilling == 'true'){
+			$scope.address_line_1 = $scope.user_details.address_line_1;
+			$scope.address_line_2 = $scope.user_details.address_line_2;
+			$scope.zip = $scope.user_details.zip;
+		}else{
+			
+		}
+	})
 	
 	//get payment methods
 	/*

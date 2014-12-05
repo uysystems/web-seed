@@ -5,14 +5,10 @@
 		<div class="col-md-4 col-sm-3 col-xs-12">
 				<div class="shipping-info">
                 	<h3 class="payment-heading">Personal Details</h3>
-				<!--<address>
-					<strong>{{user_details.first_name}} {{user_details.last_name}}</strong><br>
-					E-mail : <a href="mailto:{{log_details.Client.username}}">{{log_details.Client.username}}</a><br>
-					<strong>Phone : {{user_details.cell}}</strong>
-				</address>-->
-                <p><strong>Name : </strong>abdullah zubayer</p>
-                <p><strong>Email : </strong><a href="#">zubayer@w3-app.com</a></p>
-                <p><strong>Phone : </strong>01731921635</p>
+				
+                <p><strong>Name : </strong>{{user_details.first_name}} {{user_details.last_name}}</p>
+                <p><strong>Email : </strong><a href="mailto:{{log_details.Client.username}}">{{log_details.Client.username}}</a></p>
+                <p><strong>Phone : </strong>{{user_details.cell}}</p>
                 
                 </div>
 
@@ -26,21 +22,22 @@
 				  {{user_details.address_line_2}}<br>
 				  Zip : {{user_details.zip}}
 				</address>-->
-                <form role="form"><br />
-  <div class="form-group">
-    <label for="address">Address line 1</label>
-    <input type="text" class="form-control" >
-  </div>
-  <div class="form-group">
-    <label for="address">Address line 2</label>
-    <input type="text" class="form-control">
-  </div>
-  <div class="form-group">
-    <label for="zip">Zip</label>
-    <input type="text" class="form-control">
-  </div>
-  
-</form>
+                <br />
+				  <div class="form-group">
+				    <label for="address">Address line 1</label>
+				    <input type="text" class="form-control" readonly value="{{user_details.address_line_1}}">
+				  </div>
+				  
+				  <div class="form-group">
+				    <label for="address">Address line 2</label>
+				    <input type="text" class="form-control" readonly value="{{user_details.address_line_2}}">
+				  </div>
+				  
+				  <div class="form-group">
+				    <label for="zip">Zip</label>
+				    <input type="text" class="form-control" readonly value="{{user_details.zip}}">
+				  </div>
+				
                
 		</div>
         
@@ -52,93 +49,82 @@
 				  Zip : {{user_details.zip}}
 				</address>-->
                 <form role="form">
-                <div class="checkbox">
-    <label>
-      <input type="checkbox">  Same as Billing address
-    </label>
-  </div>
-    <div class="form-group">
-    <label for="address">Address line 1</label>
-    <input type="text" class="form-control" >
-  </div>
-  <div class="form-group">
-    <label for="address">Address line 2</label>
-    <input type="text" class="form-control">
-  </div>
-  <div class="form-group">
-    <label for="address">Zip</label>
-    <input type="text" class="form-control">
-  </div>
-  
-</form>
-               
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" data-ng-model = "sameAsBilling" checked >  Same as Billing address
+						</label>
+					</div>
+					
+					<div class="form-group">
+						<label for="address">Address line 1</label>
+						<input type="text" class="form-control proceed_input" data-ng-model="address_line_1">
+					</div>
+					
+					<div class="form-group">
+						<label for="address">Address line 2</label>
+						<input type="text" class="form-control proceed_input" data-ng-model="address_line_2">
+					</div>
+					<div class="form-group">
+						<label for="address">Zip</label>
+						<input type="text" class="form-control proceed_input" data-ng-model="zip" >
+					</div>
+			</form>
 		</div>
-        </div>
-        </div>
-        
-	<div class="row">	
-		<div class="col-md-12 hidden">
-				<h3>Shipping details</h3>
-				<strong data-ng-click="sameAsBillingAddress()" >Same as Billing address</strong><br>
-				<input data-ng-model="address_line_1" class="proceed_input" required palceholder="address line 1"> <br>
-				<input data-ng-model="address_line_2" class="proceed_input"  required palceholder="address line 2"><br>
-				<input data-ng-model="zip" class="proceed_input"  palceholder="zip" required><br>
-		</div>
-        </div>
-        <div class="row">	
-		<div class="col-md-4">
-       <div class="payment">
-       <h3 class="payment-heading">Select Payment Methods</h3>
-       <img class="img-responsive" src="images/payment-method.jpg" />
-       <div class="user-review">
-       	<h3 class="payment-heading">Notess</h3>
-        <textarea class="form-control" cols="3"></textarea>
-       </div>
-
- </div>
-        </div>	
-        <div class="col-md-8">
-        <div class="productSummery">
-        <h3 class="payment-heading">Product Summery</h3>
-<div class="table-responsive">
-	<table class="table">
-      <thead>
-        <tr>
-          <th>Product</th>
-          <th>Unit Price</th>
-          <th>Quantity</th>
-          <th>Total</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>PME Jeans Commander PTR980-GDI</td>
-          <td>99.95 EUR</td>
-          <td>1</td>
-          <td>99.95 EUR</td>
-        </tr>
-        <tr>
-          <td>PME Jeans Commander PTR980-GDI</td>
-          <td>99.95 EUR</td>
-          <td>1</td>
-          <td>99.95 EUR</td>
-        </tr>
-        <tr>
-          <td>PME Jeans Commander PTR980-GDI</td>
-          <td>99.95 EUR</td>
-          <td>1</td>
-          <td>99.95 EUR</td>
-        </tr>
-       <tr>
-          <td colspan="3"><strong>sub total</strong></td>
-          <td colspan="1"><strong>330.95 EUR</strong></td>
-        </tr>
-      </tbody>
-    </table>
+	</div>
 </div>
-       </div>
-        </div>
-       </div>
+
+
+	<div class="row">	
+		<!-- Payment methods -->
+		<div class="col-md-4">
+			<div class="payment">
+				<h3 class="payment-heading">Select Payment Methods</h3>
+				<img class="img-responsive" src="images/payment-method.jpg" />
+				<div class="user-review">
+					<h3 class="payment-heading">Notess</h3>
+					<textarea class="form-control" cols="3"></textarea>
+				</div>
+ 			</div>
+		</div>	
+		
+        <div class="col-md-8">
+        	<div class="productSummery">
+				<h3 class="payment-heading">Product Summery</h3>
+				<div class="table-responsive">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Product</th>
+								<th>Unit Price</th>
+								<th>Quantity</th>
+								<th>Sub Total</th>
+							</tr>
+						</thead>
+						
+						<tbody>
+							<tr data-ng-repeat="products in PorductsInCart ">
+								<td>{{products.product_title}}</td>
+								<td>{{products.unitPrice}} EUR</td>
+								<td>{{products.quantity}}</td>
+								<td>{{products.cost}} EUR</td>
+							</tr>
+						 <tr>
+						    <td colspan="3"><strong>Grand Total</strong></td>
+						    <td colspan="1"><strong>{{totalCost}} EUR</strong></td>
+						  </tr>
+						</tbody>
+				   </table>
+			 </div>
+			 
+			<div class="col-md-12">
+				<button class="btn btn-success confirm pull-right" data-ng-click="confirmNow()"  data-toggle="modal" data-target="#confirmModal">Confirm</button>
+				<button class="btn btn-success checkoout pull-right" data-ng-click="orderNow()">Pay Now</button>
+			</div>
+		</div>
+	</div>
+	
+	
+</div>
 		
 		<!-- 
 		<div class="col-md-6">
@@ -213,12 +199,7 @@
 		</div>
 	</div>
     
-	<div class="row">
-		<div class="col-md-12">
-			<button class="btn btn-success confirm pull-right" data-ng-click="confirmNow()"  data-toggle="modal" data-target="#confirmModal">Confirm</button>
-			<button class="btn btn-success checkoout pull-right" data-ng-click="orderNow()">Pay Now</button>
-		</div>
-	</div>
+	
 </div>
 </div>
 

@@ -3,23 +3,25 @@
     	<div id="home-slider" class="carousel slide" data-ride="carousel">
 			<!-- Indicators -->
 			<ol class="carousel-indicators">
-				<li data-target="#home-slider" data-slide-to="{{$index}}" class="active" data-ng-repeat="(imgId,imgTitle) in shop_categories" data-ng-if="$index == 0 "></li>
-				<li data-target="#home-slider" data-slide-to="{{$index}}" class="" data-ng-repeat="(imgId,imgTitle) in shop_categories" data-ng-if="$index !=0 "></li>
+				<li data-target="#home-slider" data-slide-to="{{$index}}" class="active" data-ng-repeat="(imgId,imgTitle) in gallery" data-ng-if="$index == 0 "></li>
+				<li data-target="#home-slider" data-slide-to="{{$index}}" class="" data-ng-repeat="(imgId,imgTitle) in gallery" data-ng-if="$index !=0 "></li>
 			</ol>
 	
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox">
-				<div class="item active"  data-ng-repeat="(imgId,imgTitle) in shop_categories" data-ng-if="$index == 0 ">
-					<img data-ng-src="{{cat_images}}{{imgId}}.png" alt=" {{imgTitle}}">
-	 				<div class="carousel-caption">
-					      {{imgTitle}}
+				<div class="item active"  data-ng-repeat="(imgId,imgTitle) in gallery" data-ng-if="$index == 0 ">
+					<img data-ng-src="{{gallery_images}}{{imgTitle.Gallery.id}}.{{imgTitle.Gallery.image_extension}}" alt=" {{imgTitle.Gallery.title}}">
+	 				<div class="carousel-caption" >
+					      <div class="galleryTitle">{{imgTitle.Gallery.title}}</div>
+					      <div class="galleryShortDescription" data-ng-bind-html="shortDescription(imgTitle.Gallery.details,100)"></div>
 					</div>
 				</div>
 				
-				<div class="item"  data-ng-repeat="(imgId,imgTitle) in shop_categories" data-ng-if="$index != 0 ">
-					<img data-ng-src="{{cat_images}}{{imgId}}.png" alt=" {{imgTitle}}">
-	 				<div class="carousel-caption">
-					      {{imgTitle}}
+				<div class="item"  data-ng-repeat="(imgId,imgTitle) in gallery" data-ng-if="$index != 0 ">
+					<img data-ng-src="{{gallery_images}}{{imgTitle.Gallery.id}}.{{imgTitle.Gallery.image_extension}}" alt=" {{imgTitle.Gallery.title}}">
+	 				<div class="carousel-caption" >
+					      <div class="galleryTitle">{{imgTitle.Gallery.title}}</div>
+					      <div class="galleryShortDescription" data-ng-bind-html="shortDescription(imgTitle.Gallery.details,100)"></div>
 					</div>
 				</div>
 			</div>
@@ -28,25 +30,149 @@
 </div>
 
 <div class="container bodyback2 paddingzero">
+
      <div class="col-md-4 col-sm-4 col-xs-12" data-ng-repeat ="(ind,val) in homeblock">
          <div class="homeproductholder">
          	<a data-ng-href ="{{val.HomeBlock.url}}"><img src="{{block_images}}{{val.HomeBlock.id}}.{{val.HomeBlock.image_extension}}" /></a>
          	<a data-ng-href ="{{val.HomeBlock.url}}"><p class="producttxt">{{val.HomeBlock.title}}</p></a>
          </div>
      </div>
+     
+   
      <div class="clearfix"></div>
-     <div class="sliderholder">
-	     <div class="slider-control">
-			<a class="left-arrow" href="#"></a>
-	        <a class="right-arrow" href="#"></a>
-	     </div>
-		<ul id="flexiselDemo3">
-		 	<li data-ng-repeat="(ind,val) in brandList">
-		 		<a data-ng-href="/#/shop/brand_view/{{val.Brand.id}}">
-		 			<img data-ng-src="{{shop_brand_image_location}}{{val.Brand.id}}.{{val.Brand.image_extension}}" class="img-responsive center-block"/>
-	 			</a>
-	 		</li>
-		</ul>
-     </div>
+     	
+     	<ul class="slide">
+          <li data-ng-repeat="(ind,val) in brandList">
+       
+              <a data-ng-href="/#/shop/brand_view/{{val.Brand.id}}">
+                  <img data-ng-src="{{shop_brand_image_location}}{{val.Brand.id}}.{{val.Brand.image_extension}}" class="img-responsive center-block">
+              </a>
+              <div class="clearfix"></div>
+             
+          </li>
+          </ul>
+          <div class="clearfix " ></div>
+		  <!-- 
+		  <ul class="horizontal_scroll">
+		    <li data-ng-repeat="(ind,val) in brandList">
+		 
+		        <a data-ng-href="/#/shop/brand_view/{{val.Brand.id}}">
+		            <img data-ng-src="{{shop_brand_image_location}}{{val.Brand.id}}.{{val.Brand.image_extension}}" class="img-responsive center-block">
+		        </a>
+		        
+		       
+		    </li>
+		  </ul>
+		   -->
 </div>
+
+
+
+<script>
+//Plugin start
+ (function($)
+   {
+     var methods = 
+       {
+         init : function( options ) 
+         {
+           return this.each(function()
+             {
+               var _this=$(this);
+                   _this.data('marquee',options);
+               var _li=$('>li',_this);
+                   
+                   _this.wrap('<div class="slide_container"></div>')
+                        .height(_this.height())
+                       .hover(function(){if($(this).data('marquee').stop){$(this).stop(true,false);}},
+                              function(){if($(this).data('marquee').stop){$(this).marquee('slide');}})
+                        .parent()
+                        .css({position:'relative',overflow:'hidden','height':$('>li',_this).height()})
+                        .find('>ul')
+                        .css({width:screen.width*2,position:'absolute'});
+           
+                   for(var i=0;i<Math.ceil((screen.width*3)/_this.width());++i)
+                   {
+                     _this.append(_li.clone());
+                   } 
+             
+               _this.marquee('slide');});
+         },
+      
+         slide:function()
+         {
+           var $this=this;
+           $this.animate({'left':$('>li',$this).width()*-1},
+                         $this.data('marquee').duration,
+                         'swing',
+                         function()
+                         {
+                           $this.css('left',0).append($('>li:first',$this));
+                           $this.delay($this.data('marquee').delay).marquee('slide');
+             
+                         }
+                        );
+                             
+         }
+       };
+   
+     $.fn.marquee = function(m) 
+     {
+       var settings={
+                     'delay':2000,
+                     'duration':900,
+                     'stop':true
+                    };
+       
+       if(typeof m === 'object' || ! m)
+       {
+         if(m){ 
+         $.extend( settings, m );
+       }
+ 
+         return methods.init.apply( this, [settings] );
+       }
+       else
+       {
+         return methods[m].apply( this);
+       }
+     };
+   }
+ )( jQuery );
+ 
+ //Plugin end
+ 
+ //call
+ $(document).ready(
+   function(){$('.slide').marquee({delay:3000});}
+ );
+</script>
+
+
+<style>
+.sliderholder{
+ clear: both;
+
+}
+ul.slide{margin:0;
+          padding:0;
+          height:100px !important;
+          list-style-type:none;
+          background: #fff;
+          padding: 10px 0px;
+          
+    }
+ ul.slide li{float:left;
+             list-style-type:none;
+            padding-left : 10px;
+            height:100px;
+             }
+ ul.slide img{
+              border:1px solid silver;
+             height:80px;
+             }
+</style>
+
+
+
 

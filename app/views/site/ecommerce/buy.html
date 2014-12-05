@@ -27,7 +27,7 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr data-ng-repeat="products in PorductsInCart ">
+								<tr data-ng-repeat="products in PorductsInCart "> 
 									<td>{{$index+1}}</td>
 									<td><img data-ng-src="{{products.cartThumbImage}}" class="img img-responsive cart-thumb-image"></td>
 									<td>{{products.product_title}}</td>
@@ -37,7 +37,7 @@
 										</ul>
 									</td>
 									<td>{{products.unitPrice}} EUR</td>
-									<td><input type="number"  min="0" value="{{products.quantity}}" data-cartIndex = "{{$index}}" data-unitPrice = "{{products.cost/products.quantity}}" onchange="updatePrice(this)"></td>
+									<td><input type="number"  min="1" value="{{products.quantity}}" data-cartIndex = "{{$index}}" data-unitPrice = "{{products.cost/products.quantity}}" onchange="updatePrice(this)"></td>
 									<td>{{products.cost}} EUR</td>
 							       	<td>
 							       		<span class="btn btn-danger" data-ng-click="removeFromCart({{$index}})" >Delete</span>

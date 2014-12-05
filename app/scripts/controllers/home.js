@@ -6,17 +6,17 @@
  * # MainCtrl
  * Controller of the webSeedApp
  */
-webApp.controller('HomeCtrl',['$scope','$http', function ($scope,$http) {
-	$scope.cat_images = sp.host+'img/site/product_categories/';
+webApp.controller('HomeCtrl',['$scope','$http','$sce', function ($scope,$http,$sce) {
+	$scope.gallery_images = sp.host+'img/site/gallery/';
 	
 	$http({
 		method 	: 'get',
-		url		: sp['shop_category'],
+		url		: sp['gallery'],
 		cache 	: false,
 		headers : {'content-type': 'application/x-www-form-urlencoded'}
 		
 	}).success(function(data){
-		$scope.shop_categories = data.ecommerce_categories;
+		$scope.gallery = data.gallery;
 	}).error(function(){
 		$scope.error_message = 'Network Error occured. Please reload page.';
 	});
@@ -58,13 +58,19 @@ webApp.controller('HomeCtrl',['$scope','$http', function ($scope,$http) {
 	$scope.$watch('brandList',function(nv,ov){
 		if(nv!=ov){
 			$scope.brandList = nv;
-			$scope.brandAnimation();
+			console.log($scope.brandList)
+			//$scope.brandAnimation();
 			
 		}
 	});
 	
 	$scope.brandAnimation = function(){
-		var dom = $('ul.horizontalSlider');
+		//var dom = $('ul.horizontalSlider');
+	}
+	
+	
+	$scope.shortDescription = function(data,length){
+		return $sce.trustAsHtml((data.replace(/<\/?[^>]+>/gi, '')).substr(0,length));
 	}
 	
 

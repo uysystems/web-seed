@@ -13,14 +13,16 @@
 
 
 <div class="container paddingzero blogback">
-	<div class="product-breadcrumb">
+
+<!-- 
+<div class="product-breadcrumb">
     	<ol class="breadcrumb">
-  <li><a href="#">Home</a></li>
-  <li><a href="#">Library</a></li>
-  <li class="active">Data</li>
-</ol>
-    </div>
-	
+		  <li><a href="#">Home</a></li>
+		  <li><a href="#">Library</a></li>
+		  <li class="active">Data</li>
+		</ol>
+</div>
+ -->	
 	<!-- Loading -->
 	<div class="row" data-ng-if="shop_product_details_loading == true">
 		<div class="col-md-12 text-center">
@@ -56,10 +58,10 @@
 		<div class="col-md-6">
 			<div class="row">
 				<div class="col-md-12" >
-                				<div class="product-details-top">
-								<h2 class="product-title">{{shop_product_details[0].Product.title}}</h2>
-                                <p class="brand-name">PME Legend</p>	
-					
+					<div class="product-details-top">
+						<h2 class="product-title">{{shop_product_details[0].Product.title}}</h2>
+						<p class="brand-name">{{shop_product_details[0].Product.product_code}}</p>	
+
 						<input type='hidden' name="product_id" value="{{shop_product_details[0].Product.id}}">
 						<input type ="hidden" name="product_title" value="{{shop_product_details[0].Product.title}}">
 						
@@ -77,7 +79,7 @@
                                 </div>
 								<div class="product-attributes clearfix">
 									<!-- product attribute loop -->
-									<!--<div data-ng-repeat = "product_attributes in shop_product_details[0].ProductAttribute">
+									<div data-ng-repeat = "product_attributes in shop_product_details[0].ProductAttribute">
 									
 										<div data-ng-repeat= "attributes in AllAttributeByType">
 											<div class="col-md-6" data-ng-if = "attributes.Attribute.id == product_attributes.attribute_id">
@@ -94,36 +96,23 @@
 												
 											</div>
 										</div>
-									</div>-->
+									</div>
 								</div>
+								<!-- 
 								<div class="product-size">
-                                <label>Size : </label>
-                                	<label class="radio-inline">
-                                <input type="radio" name="size" value="size">L 
-                                </label>
-                                <label class="radio-inline">
-                                <input type="radio" name="size" value="size">XXl
-                                </label>
-                                <label class="radio-inline">
-                                  <input type="radio" name="size" value="size">M
-                                </label>
-                                <label class="radio-inline">
-                                <input type="radio" name="size" value="size">XL 
-                                </label>
-                                <label class="radio-inline">
-                                <input type="radio" name="size" value="size">S
-                                </label>
-                                <label class="radio-inline">
-                                  <input type="radio" name="size" value="size">XS
-                                </label>
+                               		<label>Size : </label>
+                              		<label class="radio-inline">
+                                		<input type="radio" name="size" value="size">L 
+                                	</label>
+                               
                                 </div>
-
+                                
+                                -->
+								
 								<div class="product-quantity">
 									<label>No of Products : </label>
 									<input type="number" class="product_quantity" name="quantity" data-ng-model ='quantity' data-ng-change="updateAditionalPrice('yes')"  min="1" required>
 								</div>
-                                
-                                
 								<button type="submit" class="btn add-to-cart" value= "ADD TO CART">ADD TO CART</button>
 						
 					
@@ -133,8 +122,7 @@
 			
 				<div class="description">
 					<div class="description-heading">Description</div>
-					<!--<div class="product-details" data-ng-bind-html = "textToSafeHtml(shop_product_details[0].Product.description)"></div>-->
-                    <p>There’s this group of people who walk their dogs together twice a week. This is such a simple yet so brilliant idea. The dogs have so much fun. We’ll definitely sign up for another walk soon.</p>
+                    <p data-ng-bind-html = "textToSafeHtml(shop_product_details[0].Product.description)" ></p>
 				</div>
 			
 		

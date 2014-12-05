@@ -8,7 +8,7 @@
  * Main module of the application.
  */
 var sp = new Array();
-sp['host'] 			= 'http://localhost/uycms_service/';
+sp['host'] 			= 'http://timeoutstore.com/uycms_service/';
 sp['layout']		= sp['host']+'sites/data_layout.json'
 sp['single_page']	= sp['host']+'sites/web_page_by_id/';
 
@@ -53,6 +53,7 @@ sp['shop_payment_methods'] = sp['host'] + 'ecommerce/sites/payment_methods.json'
 sp['contact_email'] = sp['host'] + 'timeout/sites/contact.json';
 sp['lookbook'] = sp['host'] + 'timeout/sites/lookbook.json';
 sp['homeblock'] = sp['host'] + 'timeout/sites/homeblock.json';
+sp['gallery'] = sp['host'] + 'timeout/sites/gallery.json';
 
 
 var webApp = angular.module('webSeedApp', [
@@ -175,6 +176,8 @@ var webApp = angular.module('webSeedApp', [
 	  $('img').on('load',function(){
         console.log('foo')
 	  });
+	  
+	 
   })	
   
 
