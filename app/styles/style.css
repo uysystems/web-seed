@@ -527,10 +527,10 @@ body:hover .loading{display:block;}
     padding: 0;
 	overflow:hidden;
 	position:relative;}
-.slider-control a{
+.slider-control span{
 	width:31px;
 	height:124px;
-	position:absolute;}
+	position:absolute; z-index:1000; height:100px; cursor:pointer}
 .left-arrow{
 	left:0;
 	background: url("../images/left.jpg") no-repeat;}
@@ -550,7 +550,7 @@ body:hover .loading{display:block;}
 .homeproductholder {
     background-color: #2864a2;
     height: 185px;
-    margin: 10px;
+    margin: 10px 0;
     overflow: hidden;
 	width:100%;
     position: relative;
@@ -937,3 +937,13 @@ body:hover .loading{display:block;}
 	border-radius:0;
 	box-shadow:none !important;
 	border:none;}
+	
+.galleryTitle{
+	color: #ffffff;
+    font-family: timeoutfont;
+    font-size: 24px;
+}
+.carousel-home .carousel-caption{
+	text-align:left;
+	left:2%;
+}
