@@ -1,11 +1,89 @@
 <div class="container paddingzero blogback">
-	<div class="row">
-		<div class="col-md-12">
-			<h1 class="page-header">Order Details</h1>
+	<h1 class="page-heading">Order Completed</h1>
+	<div class="confirmContainner">
+		<div class="confirmTop clearfix">
+			<h1 class="x-large">thanks for your order!</h1>
+			<!-- <p>please print or save this page for records,You will also
+				receive a reeipt via email.</p> -->
 		</div>
-	</div>
+		<!--confirmTop-->
+		<div class="confirmInfo row">
+			<div class='col-md-6'>
+			<!-- 
+				<div class="confirmAddress ">
+					<h5>Shipping &amp; Billing</h5>
+				</div>
+			 -->
+				<div class="confirmAddress">
+					<h6>bill to : {{OrderBillingData.first_name}}
+						{{OrderBillingData.last_name}}</h6>
+	
+					<p>
+	
+						{{OrderBillingData.address_line_1}}<br>
+						{{OrderBillingData.address_line_2}}<br>
+						{{OrderBillingData.zip}}<br> Phone: {{OrderBillingData.cell}}
+	
+					</p>
+				</div>
+			</div>
 			
-	<div class="row">
-		success or errro
+			<div class="col-md-6">
+				<div class="confirmAddress">
+					<h6>Ship to :</h6>
+					<p>
+						<strong>Address : </strong><br>
+						{{OrderConfirmationData.shippingDetails.ship_address_1}}<br>
+						{{OrderConfirmationData.shippingDetails.ship_address_2}}<br> <strong>Zip
+							: </strong><br>{{OrderConfirmationData.shippingDetails.zip}}
+	
+					</p>
+				</div>
+			</div>
+
+		</div>
+		<!--confirmInfo-->
+
+
+		<div class="confirmInfo row">
+			<div class="productSummery col-md-12">
+				<h3 class="payment-heading">Product Summery</h3>
+				<div class="table-responsive">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Product</th>
+								<th>Unit Price</th>
+								<th>Quantity</th>
+								<th>Sub Total</th>
+							</tr>
+						</thead>
+
+						<tbody>
+							<tr
+								data-ng-repeat="products in OrderConfirmationData.orderDetails ">
+								<td>{{products.product_title}}</td>
+								<td>{{products.unitPrice}} EUR</td>
+								<td>{{products.quantity}}</td>
+								<td>{{products.cost}} EUR</td>
+							</tr>
+							<!-- 
+						 <tr>
+						    <td colspan="3"><strong>Grand Total</strong></td>
+						    <td colspan="1"><strong>{{totalCost}} EUR</strong></td>
+						  </tr> -->
+						</tbody>
+					</table>
+				</div>
+
+			</div>
+			<!--confirmInfo-->
+
+		</div>
+
 	</div>
+
 </div>
+
+
+

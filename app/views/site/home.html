@@ -110,7 +110,7 @@
       
          slide:function()
          {
-           var $this=this;
+           var $this=$(this);
            $this.animate({'left':$('>li',$this).width()*-1},
                          $this.data('marquee').duration,
                          'swing',

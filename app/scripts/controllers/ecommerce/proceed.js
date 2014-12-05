@@ -18,29 +18,23 @@ webApp.controller('ShopProceedCtrl',['$scope','$http','$sce','$routeParams','$wi
 	//
 	$scope.log_details = JSON.parse($window.sessionStorage.getItem('loginDetails'));
 	$scope.user_details =  JSON.parse($scope.log_details.Client.details);
-	$scope.payment_methods = new Object();
 	
-	
-		if($scope.sameAsBilling == 'checked'){
-			$scope.address_line_1 = $scope.user_details.address_line_1;
+	$scope.setSameToBilling = function(){
+		
+		if($scope.sameAsBilling == true){
+		    $scope.address_line_1 = $scope.user_details.address_line_1;
 			$scope.address_line_2 = $scope.user_details.address_line_2;
 			$scope.zip = $scope.user_details.zip;
 		}else{
-			
+			$scope.address_line_1 = '';
+			$scope.address_line_2 = '';
+			$scope.zip = '';
 		}
+	}
+	
+	
 		
 	
-	$scope.$watch('sameAsBilling',function(){
-		console.log($scope.sameAsBilling)
-		
-		if($scope.sameAsBilling == 'true'){
-			$scope.address_line_1 = $scope.user_details.address_line_1;
-			$scope.address_line_2 = $scope.user_details.address_line_2;
-			$scope.zip = $scope.user_details.zip;
-		}else{
-			
-		}
-	})
 	
 	//get payment methods
 	/*
@@ -60,25 +54,21 @@ webApp.controller('ShopProceedCtrl',['$scope','$http','$sce','$routeParams','$wi
 	});
 	*/
 	$scope.confirmNow = function(){
-		//make readonly for shoping address
-		var all_inputs = $('.proceed_input');
-		$.each(all_inputs,function(ind,val){
-			$(val).attr('readonly',true)
-		})
-		
-		//remove non-selected payment methods
-		var all_payment_methods = $('.proceed_input_payment');
-		$.each(all_payment_methods,function(ind,val){
-			if($(val).is(':checked')){
+		var isvalid = validate_form("#confirmOrderForm");
+		$('#confirmModal').modal('hide');  
+		if(isvalid == true){
+			console.log ('ready to submit');
+			
+			//make readonly for shoping address
+			var all_inputs = $('.proceed_input');
+			$.each(all_inputs,function(ind,val){
 				$(val).attr('readonly',true)
-				$scope.selected_payment_method = $(val).val();
-			}else{
-				var removeable = $(val).parent('li');
-				$(removeable).remove();
-			}
-		});
-		$('.confirm').hide();
-		$('.checkoout').show();
+			})
+			
+			$('.confirm').hide();
+			$('.checkoout').show();
+			
+		}
 		
 	}
 	
@@ -96,6 +86,7 @@ webApp.controller('ShopProceedCtrl',['$scope','$http','$sce','$routeParams','$wi
         	total_price += parseFloat(val.cost);
         });
         
+       //process shipping details 
        $scope.shippingDetails = new Object();
        $scope.shippingDetails.ship_address_1 = $scope.address_line_1;
        $scope.shippingDetails.ship_address_2 = $scope.address_line_2;
@@ -108,29 +99,19 @@ webApp.controller('ShopProceedCtrl',['$scope','$http','$sce','$routeParams','$wi
 		    			cart 			: $scope.PorductsInCart,
 		    			client_details 	: $window.sessionStorage.getItem('loginDetails'),
 		    			shipping_detail : $scope.shippingDetails,
-		    			//payment			: $scope.selected_payment_method,
 		    			total_cost		: total_price
 		    		  },
     		cache 	: false,
     		headers : {'content-type': 'application/x-www-form-urlencoded'}
     		
     	}).success(function(data){
+    		
     		if(data.ecommerce_checkout.status == true){
     			$window.location.href = data.ecommerce_checkout.message
-    		}else{
-    			console.log('error');
     		}
     	})
-    	
-    	
-    	
-    	
     }
 	
-	//watch
 	
-	$scope.$watch('payment_methods',function(nv, ov){
-		$scope.payment_methods = nv;
-	})
 	
 }]);

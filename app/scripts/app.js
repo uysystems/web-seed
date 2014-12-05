@@ -8,7 +8,7 @@
  * Main module of the application.
  */
 var sp = new Array();
-sp['host'] 			= 'http://localhost/uycms_service/';
+sp['host'] 			= 'http://timeoutstore.com/uycms_service/';
 sp['layout']		= sp['host']+'sites/data_layout.json'
 sp['single_page']	= sp['host']+'sites/web_page_by_id/';
 
@@ -30,21 +30,22 @@ sp['blog_post_single']		= sp['host']+'blog/sites/blog_single_post/';
 sp['product_image_root']		= sp['host']+'img/site/products/';
 
 sp['shop_barnds']				= sp['host']+'ecommerce/sites/brand_list.json';
-sp['shop_barnds_image']				= sp['host']+'ecommerce/sites/brand_list_image.json';
-sp['shop_barnd_tree']				= sp['host']+'ecommerce/sites/brandTree.json';
+sp['shop_barnds_image']			= sp['host']+'ecommerce/sites/brand_list_image.json';
+sp['shop_barnd_tree']			= sp['host']+'ecommerce/sites/brandTree.json';
 sp['shop_category']				= sp['host']+'ecommerce/sites/category_list.json';
 sp['shop_random_product_list']	= sp['host']+'ecommerce/sites/random_product_list.json';
 sp['shop_product_by_category']	= sp['host']+'ecommerce/sites/product_list_by_category/';
 sp['shop_product_by_brand']		= sp['host']+'ecommerce/sites/product_list_by_brand/';
 
 sp['shop_product_details']		= sp['host']+'ecommerce/sites/product_details.json';
-sp['shop_product_attributes']		= sp['host']+'ecommerce/sites/product_attribute_list.json';
+sp['shop_product_attributes']	= sp['host']+'ecommerce/sites/product_attribute_list.json';
 sp['shop_stores']				= sp['host']+'ecommerce/sites/getStores.json';
 sp.getAttrByCatId				= sp['host']+'ecommerce/sites/getAttrByCatId.json';
 sp.getProductsByAttrFilter		= sp['host']+'ecommerce/sites/getProductsByAttrFilter.json';
 
 
 sp['shop_order']		= sp['host']+'ecommerce/sites/order.json';
+sp['shop_order_status']		= sp['host']+'ecommerce/sites/order_update_by_icepay.json';
 sp['shop_history']		= sp['host']+'ecommerce/sites/shoping_history.json';
 
 sp['shop_payment_methods'] = sp['host'] + 'ecommerce/sites/payment_methods.json';
@@ -169,7 +170,7 @@ var webApp = angular.module('webSeedApp', [
         redirectTo: '/'
       })
   }).config(function($locationProvider){
-	// $locationProvider.html5Mode(true);
+	  //$locationProvider.html5Mode(true);
   })
   
   $(document).ready(function(){

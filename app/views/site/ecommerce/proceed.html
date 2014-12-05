@@ -48,25 +48,25 @@
 				  {{user_details.address_line_2}}<br>
 				  Zip : {{user_details.zip}}
 				</address>-->
-                <form role="form">
+                <form role="form" id="confirmOrderForm">
 					<div class="checkbox">
 						<label>
-							<input type="checkbox" data-ng-model = "sameAsBilling" checked >  Same as Billing address
+							<input type="checkbox" data-ng-model = "sameAsBilling" data-ng-change="setSameToBilling()">  Same as Billing address
 						</label>
 					</div>
 					
 					<div class="form-group">
 						<label for="address">Address line 1</label>
-						<input type="text" class="form-control proceed_input" data-ng-model="address_line_1">
+						<input type="text" name="shipping_address_1" placeholder="address line 1" data-validate = '[{"not_empty":[{"message":"Please input your address (line 1)."}]}]' class="form-control proceed_input" data-ng-model="address_line_1">
 					</div>
 					
 					<div class="form-group">
 						<label for="address">Address line 2</label>
-						<input type="text" class="form-control proceed_input" data-ng-model="address_line_2">
+						<input type="text"  name="shipping_address_2" placeholder="address line 2" data-validate = '[{"not_empty":[{"message":"Please input your address (line 2)."}]}]' class="form-control proceed_input" class="form-control proceed_input" data-ng-model="address_line_2">
 					</div>
 					<div class="form-group">
 						<label for="address">Zip</label>
-						<input type="text" class="form-control proceed_input" data-ng-model="zip" >
+						<input name="zip" placeholder="Zip Code" data-validate = '[{"not_empty":[{"message":"Please input your zip code"}]}]' type="text" class="form-control proceed_input" data-ng-model="zip" >
 					</div>
 			</form>
 		</div>
@@ -78,10 +78,10 @@
 		<!-- Payment methods -->
 		<div class="col-md-4">
 			<div class="payment">
-				<h3 class="payment-heading">Select Payment Methods</h3>
+				<h3 class="payment-heading">Supported Payment Methods</h3>
 				<img class="img-responsive" src="images/payment-method.jpg" />
 				<div class="user-review">
-					<h3 class="payment-heading">Notess</h3>
+					<h3 class="payment-heading">Notes</h3>
 					<textarea class="form-control" cols="3"></textarea>
 				</div>
  			</div>
@@ -117,7 +117,7 @@
 			 </div>
 			 
 			<div class="col-md-12">
-				<button class="btn btn-success confirm pull-right" data-ng-click="confirmNow()"  data-toggle="modal" data-target="#confirmModal">Confirm</button>
+				<button class="btn btn-success confirm pull-right"   data-toggle="modal" data-target="#confirmModal">Confirm</button>
 				<button class="btn btn-success checkoout pull-right" data-ng-click="orderNow()">Pay Now</button>
 			</div>
 		</div>
@@ -201,7 +201,6 @@
     
 	
 </div>
-</div>
 
 <!-- Modal -->
 <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -212,7 +211,7 @@
       <h4 class="modal-title">Are you Confirm ?</h4><br />
 
         <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
-        <button type="button" class="btn btn-success">Yes</button>
+        <button type="button" class="btn btn-success" data-ng-click="confirmNow()">Yes</button>
       </div>
  		
     </div>
