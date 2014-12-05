@@ -1,39 +1,25 @@
 <style>
 	.current_image{
-		height: 180px;
+		height:300px;
 	}
 	.thumb-image{
-		height: 35px;
+		height: 45px;
+		margin-top:0 !important;
 	}
 	
-	.product-title{
-		font-size: 2em;
-		border-bottom:1px solid #eee;
-		margin-bottom : 5px;
-	}
-	
-	.product-details p{
-		font-size: .9em;
-	}
-	
-	.description-label{
-		clear: both;
-		font-size: 1.3em;
-		border-bottom: 1px solid #eee;
-		margin-bottom:5 px;
-		margin-top : 10px;
-	}
 </style>
 
 
 
 
 <div class="container paddingzero blogback">
-	<div class="row">
-		<div class="col-md-12">
-			<h1 class="page-header">Details</h1>
-		</div>
-	</div>
+	<div class="product-breadcrumb">
+    	<ol class="breadcrumb">
+  <li><a href="#">Home</a></li>
+  <li><a href="#">Library</a></li>
+  <li class="active">Data</li>
+</ol>
+    </div>
 	
 	<!-- Loading -->
 	<div class="row" data-ng-if="shop_product_details_loading == true">
@@ -46,55 +32,53 @@
 		<!-- Product images -->
 		<form data-ng-submit ="addToCart($event,$window);">
 		<div class="col-md-3">
+        <div class="product-details-image">
 			<div class="row">
 				<div class="col-md-12 text-center">
 					<div>
-						<img class = "img-responsive current_image relative"  data-ng-repeat="images in shop_product_details[0].ProductImage" data-ng-if="$index == 0" data-ng-src = "{{shop_image_location}}{{images.id}}.{{images.extension}}" />
+						<img class = "img-responsive center-block current_image relative"  data-ng-repeat="images in shop_product_details[0].ProductImage" data-ng-if="$index == 0" data-ng-src = "{{shop_image_location}}{{images.id}}.{{images.extension}}" />
 						<!-- data-ng-mouseout="destroyZoom()" data-ng-mousemove="uyZoom($event)" -->
 					</div>
 				</div>
 			</div>
 			 
-        	
-        	<div class="row">
-        		<div class="col-md-3" data-ng-repeat="images in shop_product_details[0].ProductImage" >
-        			<img class ="img-responsive thumb-image" data-ng-mouseover="updateThumb($event)" data-ng-src = "{{shop_image_location}}{{images.id}}.{{images.extension}}">
+            <ul class="list-inline text-center">
+            	<li data-ng-repeat="images in shop_product_details[0].ProductImage">
+                <img class ="img-responsive thumb-image" data-ng-mouseover="updateThumb($event)" data-ng-src = "{{shop_image_location}}{{images.id}}.{{images.extension}}">
         			<input type="hidden" name="cartThumbImage" data-ng-if="$index == 0" value="{{shop_image_location}}{{images.id}}.{{images.extension}}">
-        		</div>
-        	</div>
+                </li>
+            </ul>
         	
 		</div>
+        </div>
 		
 		<!-- InfoProducts -->
 		<div class="col-md-6">
 			<div class="row">
 				<div class="col-md-12" >
-					<div class="row">
-						<div class="col-md-12">
-							<div class="product-title">{{shop_product_details[0].Product.title}}</div>
-						</div>
-					</div>
-					
+                				<div class="product-details-top">
+								<h2 class="product-title">{{shop_product_details[0].Product.title}}</h2>
+                                <p class="brand-name">PME Legend</p>	
 					
 						<input type='hidden' name="product_id" value="{{shop_product_details[0].Product.id}}">
 						<input type ="hidden" name="product_title" value="{{shop_product_details[0].Product.title}}">
-						<div class="row">
-							
+						
 							   <!-- 
 								<div class="product-categories">
 									<a data-ng-repeat="product_categories in shop_product_details[0].ProductCategory" data-ng-href="/#/shop/category_view/{{product_categories.category_id}}">category </a>
 								</div>
 								
 								-->
-								<div class="product-price" >
+								<div class="product-price">
 									PRICE : 
 									<span class="product-price-holder" data-ng-model="product_price" >{{product_price}}</span> EUR
 								 	<input type="hidden" name ="cost" value ="{{product_price}}">
 								</div>
+                                </div>
 								<div class="product-attributes clearfix">
 									<!-- product attribute loop -->
-									<div data-ng-repeat = "product_attributes in shop_product_details[0].ProductAttribute">
-										<!-- loop through all attribute -->
+									<!--<div data-ng-repeat = "product_attributes in shop_product_details[0].ProductAttribute">
+									
 										<div data-ng-repeat= "attributes in AllAttributeByType">
 											<div class="col-md-6" data-ng-if = "attributes.Attribute.id == product_attributes.attribute_id">
 												<label>{{attributes.Attribute.title}}</label>
@@ -110,44 +94,152 @@
 												
 											</div>
 										</div>
-									</div>
+									</div>-->
 								</div>
-								<label class="radio-inline">
-  <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> 1
-</label>
-<label class="radio-inline">
-  <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 2
-</label>
-<label class="radio-inline">
-  <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3"> 3
-</label>
+								<div class="product-size">
+                                <label>Size : </label>
+                                	<label class="radio-inline">
+                                <input type="radio" name="size" value="size">L 
+                                </label>
+                                <label class="radio-inline">
+                                <input type="radio" name="size" value="size">XXl
+                                </label>
+                                <label class="radio-inline">
+                                  <input type="radio" name="size" value="size">M
+                                </label>
+                                <label class="radio-inline">
+                                <input type="radio" name="size" value="size">XL 
+                                </label>
+                                <label class="radio-inline">
+                                <input type="radio" name="size" value="size">S
+                                </label>
+                                <label class="radio-inline">
+                                  <input type="radio" name="size" value="size">XS
+                                </label>
+                                </div>
 
-								<div class="clearfix">
+								<div class="product-quantity">
 									<label>No of Products : </label>
 									<input type="number" class="product_quantity" name="quantity" data-ng-model ='quantity' data-ng-change="updateAditionalPrice('yes')"  min="1" required>
 								</div>
                                 
                                 
-								<input type="submit" class="btn btn-success" value= "ADD TO CART" >
-						</div>
+								<button type="submit" class="btn add-to-cart" value= "ADD TO CART">ADD TO CART</button>
+						
 					
 				</div>
 			</div>
 			
-			<div class="row">
-				<div class="col-md-12">
-					<div class="description-label">Description</div>
-					<div class="product-details" data-ng-bind-html = "textToSafeHtml(shop_product_details[0].Product.description)"></div>
+			
+				<div class="description">
+					<div class="description-heading">Description</div>
+					<!--<div class="product-details" data-ng-bind-html = "textToSafeHtml(shop_product_details[0].Product.description)"></div>-->
+                    <p>There’s this group of people who walk their dogs together twice a week. This is such a simple yet so brilliant idea. The dogs have so much fun. We’ll definitely sign up for another walk soon.</p>
 				</div>
 			
-			</div>
 		
 		</div>
 		</form>
 		<!-- Related Products -->
 		<div class="col-md-3">
+        <div class="releted-heading">Related Products</div>
 			<div class="row">
-				
+				<div class="col-md-6 col-sm-6 col-xs-12">
+						<div class="product-box releted-product">
+							<div class="product-img">
+								<a href="#">
+									<!--<img data-ng-src="{{shop_image_location}}{{p_image.id}}.{{p_image.extension}}" alt="{{product.Product.title}}" />-->
+                                    <img src="images/timthumb.jpg" />
+								</a>
+							</div>
+							
+							<div class="product-content">
+								<h1>
+									<!--<a data-ng-href="/#/shop/product/details/{{product.Product.id}}">{{product.Product.title}}</a>-->
+                                    <a href="#">PME Jeans Commander PTR980-GDI</a>
+								</h1>
+								<p data-ng-bind-html="shortDescription(product.Product.description,50)"></p>
+								<p class="product-price">
+									<!--<a data-ng-href="/#/shop/product/details/{{product.Product.id}}">€ {{product.Product.price}}</a>-->
+                                    €99.95
+								</p>
+							</div>
+							
+						</div>
+					</div>
+                    
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+						<div class="product-box releted-product">
+							<div class="product-img">
+								<a href="#">
+									<!--<img data-ng-src="{{shop_image_location}}{{p_image.id}}.{{p_image.extension}}" alt="{{product.Product.title}}" />-->
+                                    <img src="images/timthumb.jpg" />
+								</a>
+							</div>
+							
+							<div class="product-content">
+								<h1>
+									<!--<a data-ng-href="/#/shop/product/details/{{product.Product.id}}">{{product.Product.title}}</a>-->
+                                    <a href="#">PME Jeans Commander PTR980-GDI</a>
+								</h1>
+								<p data-ng-bind-html="shortDescription(product.Product.description,50)"></p>
+								<p class="product-price">
+									<!--<a data-ng-href="/#/shop/product/details/{{product.Product.id}}">€ {{product.Product.price}}</a>-->
+                                    €99.95
+								</p>
+							</div>
+							
+						</div>
+					</div>
+                    
+                    
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+						<div class="product-box releted-product">
+							<div class="product-img">
+								<a href="#">
+									<!--<img data-ng-src="{{shop_image_location}}{{p_image.id}}.{{p_image.extension}}" alt="{{product.Product.title}}" />-->
+                                    <img src="images/timthumb.jpg" />
+								</a>
+							</div>
+							
+							<div class="product-content">
+								<h1>
+									<!--<a data-ng-href="/#/shop/product/details/{{product.Product.id}}">{{product.Product.title}}</a>-->
+                                    <a href="#">PME Jeans Commander PTR980-GDI</a>
+								</h1>
+								<p data-ng-bind-html="shortDescription(product.Product.description,50)"></p>
+								<p class="product-price">
+									<!--<a data-ng-href="/#/shop/product/details/{{product.Product.id}}">€ {{product.Product.price}}</a>-->
+                                    €99.95
+								</p>
+							</div>
+							
+						</div>
+					</div>
+                    
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+						<div class="product-box releted-product">
+							<div class="product-img">
+								<a href="#">
+									<!--<img data-ng-src="{{shop_image_location}}{{p_image.id}}.{{p_image.extension}}" alt="{{product.Product.title}}" />-->
+                                    <img src="images/timthumb.jpg" />
+								</a>
+							</div>
+							
+							<div class="product-content">
+								<h1>
+									<!--<a data-ng-href="/#/shop/product/details/{{product.Product.id}}">{{product.Product.title}}</a>-->
+                                    <a href="#">PME Jeans Commander PTR980-GDI</a>
+								</h1>
+								<p data-ng-bind-html="shortDescription(product.Product.description,50)"></p>
+								<p class="product-price">
+									<!--<a data-ng-href="/#/shop/product/details/{{product.Product.id}}">€ {{product.Product.price}}</a>-->
+                                    €99.95
+								</p>
+							</div>
+							
+						</div>
+					</div>
 			</div>
 		
 		</div>
