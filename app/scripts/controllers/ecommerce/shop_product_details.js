@@ -15,18 +15,22 @@ webApp.controller('ShopProductDetailsCtrl',['$scope','$http','$sce', '$routePara
 	//get product data data
 	$http({
 		method 	: 'post',
-		url		: sp['shop_product_details']+$routeParams.id+'.json',
+		url		: sp['shop_product_details'],
+		data	: {productId : $routeParams.id},
 		cache 	: false,
-		responseType : 'json',
 		headers : {'content-type': 'application/x-www-form-urlencoded'}
 		
 	}).success(function(data){
+		console.log(data)
 		//get initial data according to the product type
 		$http({
 			method	: 'post',
-			url 	: sp['shop_product_attributes']+data.ecommerce_product_details[0].Product.type_id + '.json',
+			url 	: sp['shop_product_attributes'],
+			data	: {type_id : data.ecommerce_product_details[0].Product.type_id},
 			cache 	: false,
+			headers : {'content-type': 'application/x-www-form-urlencoded'}
 		}).success(function(attribute_data){
+			console.log(attribute_data)
 			//assign values
 			$scope.AllAttributeByType = attribute_data.ecommerce_product_attributes;
 			$scope.shop_product_details = data.ecommerce_product_details;

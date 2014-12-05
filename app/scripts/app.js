@@ -8,7 +8,7 @@
  * Main module of the application.
  */
 var sp = new Array();
-sp['host'] 			= 'http://timeoutstore.com/uycms_service/';
+sp['host'] 			= 'http://localhost/uycms_service/';
 sp['layout']		= sp['host']+'sites/data_layout.json'
 sp['single_page']	= sp['host']+'sites/web_page_by_id/';
 
@@ -16,7 +16,7 @@ sp['single_page']	= sp['host']+'sites/web_page_by_id/';
 sp['client_registration']	= sp['host']+'timeout/sites/client_registration.json';
 sp['client_login']	= sp['host']+'timeout/sites/client_login.json';
 sp['client_profile']	= sp['host']+'timeout/sites/client_profile.json';
-sp['client_check_crrrent_password'] =  sp['host']+'timeout/sites/check_crrrent_password.json'
+sp['client_check_current_password'] =  sp['host']+'timeout/sites/check_current_password.json'
 sp['client_update_password'] = sp['host']+'timeout/sites/update_password.json'
 
 //blog
@@ -37,8 +37,8 @@ sp['shop_random_product_list']	= sp['host']+'ecommerce/sites/random_product_list
 sp['shop_product_by_category']	= sp['host']+'ecommerce/sites/product_list_by_category/';
 sp['shop_product_by_brand']		= sp['host']+'ecommerce/sites/product_list_by_brand/';
 
-sp['shop_product_details']		= sp['host']+'ecommerce/sites/product_details/';
-sp['shop_product_attributes']		= sp['host']+'ecommerce/sites/product_attribute_list/';
+sp['shop_product_details']		= sp['host']+'ecommerce/sites/product_details.json';
+sp['shop_product_attributes']		= sp['host']+'ecommerce/sites/product_attribute_list.json';
 sp['shop_stores']				= sp['host']+'ecommerce/sites/getStores.json';
 sp.getAttrByCatId				= sp['host']+'ecommerce/sites/getAttrByCatId.json';
 sp.getProductsByAttrFilter		= sp['host']+'ecommerce/sites/getProductsByAttrFilter.json';

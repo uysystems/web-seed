@@ -43,23 +43,13 @@ a:hover{text-decoration:none !important;}
 .ulspan:hover{text-shadow:1px 1px 1px #000000;text-decoration:none;}
 .socialiconholder{padding:10px 0px 20px 0px;height:75px;}
 .copyrightnote{float:right;font-size:12px;}
-/*.navbar-nav > li{background-image: url("../images/nav-hover.png");background-size:cover;width:12.5%;background-repeat:no-repeat;}
-*/
-
-/*.navimg{position:absolute;left:-18px;top:-4px;display:none;}
-.navbar-nav > li:hover .navimg{display:block;}
-*/
 
 
 .bodyback2{background-image:url('../images/bodyback2.jpg');background-size: contain;margin-top:5px;}
 .sliderholder{padding:20px 15px;height:145px;}
 .homeproductholder{position:relative;margin:10px;background-color:#2864a2;padding:5px;}
 .producttxt{color:#ffffff;font-family:timeoutfont;font-size:20px;position:absolute;top:70%;left:5px;background-color:#2864a2;border-top:1px solid #ffffff;border-right:1px solid #ffffff;border-bottom:1px solid #ffffff;padding:0px 10px}
-/*.homeproductholder img{-webkit-filter: grayscale(1); -webkit-filter: grayscale(100%); -moz-filter: grayscale(100%);
 
-filter: gray; filter: grayscale(100%);
-
-filter: url(../desaturate.svg#greyscale); }*/
 
 .homeproductholder img{ filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale"); /* Firefox 10+, Firefox on Android */
 filter: gray; /* IE6-9 */
@@ -337,71 +327,19 @@ body:hover .loading{display:block;}
 @media (max-width: 1200px) and (min-width: 992px) 
 {
 	
-	.navbar-default .navbar-nav > li > a{font-size:16px;}
-	.nav > li > a{padding:15px 15px;}
-	
-	
-	.navimghome{position:absolute;left:-18px;top:-4px;display:none; width: 105px;height:47px;}
-	.navimgblog{position:absolute;left:-18px;top:-4px;display:none;width: 105px;height:47px;}
-	.navimgbrands{position:absolute;left:-18px;top:-4px;display:none;width: 128px;height:47px;}
-	.navimgdeals{position:absolute;left:-18px;top:-4px;display:none;width: 110px;height:47px;}
-	.navimgwebshop{position:absolute;left:-18px;top:-4px;display:none;width: 142px;height:47px;}
-	.navimgcontact{position:absolute;left:-18px;top:-4px;display:none;width: 135px;height:47px;}
-	.navimgstores{position:absolute;left:-18px;top:-4px;display:none;width: 125px;height:47px;}
-	
-	.navbar-nav > li:hover .navimghome{display:block;}
-	.navbar-nav > li:hover .navimgblog{display:block;}
-	.navbar-nav > li:hover .navimgbrands{display:block;}
-	.navbar-nav > li:hover .navimgdeals{display:block;}
-	.navbar-nav > li:hover .navimgwebshop{display:block;}
-	.navbar-nav > li:hover .navimgcontact{display:block;}
-	.navbar-nav > li:hover .navimgstores{display:block;}
 	
 	}
 	
 @media (max-width: 991px) and (min-width: 768px) 
 {
-	
-	.navbar-default .navbar-nav > li > a{font-size:14px;}
-	.nav > li > a{padding:15px 10px;}
-	
-	
-	.navimghome{position:absolute;left:-18px;top:-4px;display:none; width: 95px;height:47px;}
-	.navimgblog{position:absolute;left:-18px;top:-4px;display:none;width: 95px;height:47px;}
-	.navimgbrands{position:absolute;left:-18px;top:-4px;display:none;width: 112px;height:47px;}
-	.navimgdeals{position:absolute;left:-18px;top:-4px;display:none;width: 95px;height:47px;}
-	.navimgwebshop{position:absolute;left:-18px;top:-4px;display:none;width: 125px;height:47px;}
-	.navimgcontact{position:absolute;left:-18px;top:-4px;display:none;width: 120px;height:47px;}
-	.navimgstores{position:absolute;left:-18px;top:-4px;display:none;width: 110px;height:47px;}
-	
-	.navbar-nav > li:hover .navimghome{display:block;}
-	.navbar-nav > li:hover .navimgblog{display:block;}
-	.navbar-nav > li:hover .navimgbrands{display:block;}
-	.navbar-nav > li:hover .navimgdeals{display:block;}
-	.navbar-nav > li:hover .navimgwebshop{display:block;}
-	.navbar-nav > li:hover .navimgcontact{display:block;}
-	.navbar-nav > li:hover .navimgstores{display:block;}
+
 	
 	}
 	
 	
 @media (min-width: 1200px)
 {
-	.navimghome{position:absolute;left:-18px;top:-4px;display:none; width: 138px;height:47px;}
-	.navimgblog{position:absolute;left:-18px;top:-4px;display:none;width: 138px;height:47px;}
-	.navimgbrands{position:absolute;left:-18px;top:-4px;display:none;width: 160px;height:47px;}
-	.navimgdeals{position:absolute;left:-18px;top:-4px;display:none;width: 138px;height:47px;}
-	.navimgwebshop{position:absolute;left:-18px;top:-4px;display:none;width: 180px;height:47px;}
-	.navimgcontact{position:absolute;left:-18px;top:-4px;display:none;width: 170px;height:47px;}
-	.navimgstores{position:absolute;left:-18px;top:-4px;display:none;width: 155px;height:47px;}
 	
-	.navbar-nav > li:hover .navimghome{display:block;}
-	.navbar-nav > li:hover .navimgblog{display:block;}
-	.navbar-nav > li:hover .navimgbrands{display:block;}
-	.navbar-nav > li:hover .navimgdeals{display:block;}
-	.navbar-nav > li:hover .navimgwebshop{display:block;}
-	.navbar-nav > li:hover .navimgcontact{display:block;}
-	.navbar-nav > li:hover .navimgstores{display:block;}
 	
 	
 	}
@@ -420,17 +358,7 @@ body:hover .loading{display:block;}
 	#productnavbar li{float:left;margin:16px 8px;}
 	#productnavbar li a{color:#3a3a3a;}
 	#productnavbar li a:hover{color:#000000;text-shadow:1px 1px 1px #cccccc;}
-	.navimghome{display:none;} 
-	.navimgblog{display:none;}
-	.navimgbrands{display:none;}
-	.navimgdeals{display:none;}
-	.navimgwebshop{display:none;}
-	.navimgcontact{display:none;}
-	.navimgstores{display:none;}
-	.checkoutpadleft{padding:10px 0px;}
-	.checkoutpadright{padding:10px 0px;}
-	.checoutholder .topcheckbox{float:none;}
-	.checoutholder .bottomcheckbox{float:none;}
+	
 	
 	
 	/*04-06-2014*/
@@ -481,11 +409,7 @@ body:hover .loading{display:block;}
 	
 	}
 	
-	
-#main-menu ul li:hover{
-	background: url(../images/nav-hover.png) no-repeat center -5px;
-	
-}
+
 
 
 .page-header {
@@ -493,6 +417,7 @@ body:hover .loading{display:block;}
 	font-size: 28px !important;
 	
 }
+
 .navbar-site ul li a {
     color: #b8b8b8;
     font-size: 17px;
@@ -500,7 +425,7 @@ body:hover .loading{display:block;}
     font-weight: lighter;
     position: relative;
 }
-.navbar-site ul li a:hover, .navbar-site ul li a.active {
+.navbar-site ul li a:hover, .navbar-site ul li a:active {
     background: url("../images/nav-hover.png") no-repeat scroll center -4px rgba(0, 0, 0, 0);
     color: #fff;
 }
@@ -767,7 +692,7 @@ body:hover .loading{display:block;}
 .form-content{
 	min-height:450px;
 	padding:50px;}
-.form-content input,.checkout-info input,.form-content textarea,.user-review textarea{
+.form-control, .form-content input,.checkout-info input,.form-content textarea,.user-review textarea{
 	border-radius:0;
 	color:#666;
 	box-shadow:none;}

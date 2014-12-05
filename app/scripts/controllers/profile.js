@@ -32,7 +32,7 @@ webApp.controller('ProfileCtrl', ['$rootScope', '$scope','$window','$http',funct
 			var formData = $("#update_profile_form").serializeArray();
 			$http({
 				url 	: sp['client_profile'],
-				data	: {client_id : logged_user_data.Client.id , action : 'upate_data',new_data : formData},
+				data	: {client_id : logged_user_data.Client.id , action : 'update_data',new_data : formData},
 				method	: 'POST',
 				cache 	: false,
 				headers : {'content-type': 'application/x-www-form-urlencoded'}
@@ -45,30 +45,32 @@ webApp.controller('ProfileCtrl', ['$rootScope', '$scope','$window','$http',funct
 	}
 	
 	$scope.checkCurrentPassword = function(){
+		
 		$http({
-			url 	: sp['client_check_crrrent_password'],
+			url 	: sp.client_check_current_password,
 			data	: {client_id : logged_user_data.Client.id , current_password : $scope.current_password},
 			method	: 'POST',
 			cache 	: false,
 			headers : {'content-type': 'application/x-www-form-urlencoded'}
 		}).success(function(data,status){
-			$('#current_password_is_matched').html(data.client_password_check.message);
+			$scope.current_password_message = data.client_password_check.message;
 			if(data.client_password_check.message == ''){
-				$('#current_password_is_matched').attr('is_matched','matched');
+				$scope.current_password_is_matched = true;
 			}else{
-				$('#current_password_is_matched').attr('is_matched','notMatched');
+				$scope.current_password_is_matched = false;
 			}
 			
 			
 		})
 	}
 	
+	
 	///submit new password
 	
 	$scope.updatePassword = function(){
 		var isvalid = validate_form("#update_password_form");
 		if(isvalid == true){
-			if($('#current_password_is_matched').attr('is_matched') == 'matched'){
+			if($scope.current_password_is_matched == true){
 				$http({
 					url 	: sp['client_update_password'],
 					data	: {client_id : logged_user_data.Client.id , new_password : $scope.new_password},
@@ -76,18 +78,11 @@ webApp.controller('ProfileCtrl', ['$rootScope', '$scope','$window','$http',funct
 					cache 	: false,
 					headers : {'content-type': 'application/x-www-form-urlencoded'}
 				}).success(function(data,status){
-						$('#password_update_message').html(data.client_update_password.message);
-					
+					$('#password_update_message').addClass('alert alert-success').html(data.client_update_password.message);
 				}).error(function(){
 					$('#password_update_message').html('Network error, please try again');
 				})
 			}
-			
 		}
 	}
-	
-	
-	
-		
-	
   }]);
