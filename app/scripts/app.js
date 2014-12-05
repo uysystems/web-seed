@@ -169,7 +169,7 @@ var webApp = angular.module('webSeedApp', [
         redirectTo: '/'
       })
   }).config(function($locationProvider){
-	  //$locationProvider.html5Mode(true);
+	// $locationProvider.html5Mode(true);
   })
   
   $(document).ready(function(){
