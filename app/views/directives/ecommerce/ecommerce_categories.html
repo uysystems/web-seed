@@ -2,7 +2,7 @@
 <div class="text-center" data-ng-if="ecommerce_cat_loading == true">
 	<img  data-ng-src="images/ajax-loader.gif">
 </div>
-<div class="categoryTreeUl" data-ng-if="ecommerce_cat_loading == false" data-ng-bind-unsafe="categoryTree" >
+<div class="categoryTreeUl" data-ng-if="ecommerce_cat_loading == false" ng-bind-html-unsafe="categoryTree" >
 
 </div>
 <!-- 

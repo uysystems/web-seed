@@ -26,27 +26,12 @@ webApp.directive('ecommercecategories',['$rootScope','$http','$compile','$sce', 
 		}
 	}
 	
-	$http({
-		url		: sp['shop_category_tree'],
-		method 	: 'get',
-		cache 	: true,
-		headers : {'content-type': 'application/x-www-form-urlencoded'}
-	}).success(function(data){
-		//$scope.ecommerce_categories = data.ecommerce_categories;
-		$scope.ecommerce_cat_loading = false;
-		$scope.error_message = '';
-		$scope.categoryTree = treeGenerator(data.category_tree)
-				
-	}).error(function(status){
-		$scope.error_message = 'Network Error occured. Please reload page.';
-	});
-	
 	
 	return {
 		restrict: 'E',
 		transclude: true,
-		templateUrl : 'views/directives/ecommerce/ecommerce_categories.html',
-		link : function(scope, element, atttributes){
+		
+		controller : function(){
 			$http({
 				url		: sp['shop_category_tree'],
 				method 	: 'get',
@@ -60,17 +45,21 @@ webApp.directive('ecommercecategories',['$rootScope','$http','$compile','$sce', 
 			}).error(function(status){
 				$scope.error_message = 'Network Error occured. Please reload page.';
 			});
-			
-			
+		},
+		
+		link : function(scope, element, atttributes){
 			scope.$watch('categoryTree',function(nv,ov){
 				if(nv != ov){
 					$scope.categoryTree = $compile(nv) (scope);
-					$('.categoryTreeUl').html($scope.categoryTree )
+					//console.log($scope.categoryTree)
+					$('.categoryTreeUl').html($scope.categoryTree)
 					//$scope.categoryTree = htmlString($scope.categoryTree);
 					//console.log($scope.categoryTree)
 				}
 			})
 		},
+		
+		templateUrl : 'views/directives/ecommerce/ecommerce_categories.html'
 		
 		    
 	};
