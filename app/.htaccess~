@@ -542,3 +542,4 @@ FileETag None
 #    Header set Connection Keep-Alive
 # </IfModule>
 
+Alias ^/img/(.*)$ http://localhost/uycms/app/webroot/img/$1

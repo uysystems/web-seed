@@ -29,6 +29,7 @@ webApp.controller('LoginCtrl', ['$scope','$http','$window','$compile','$routePar
 					}
 					
 				}else{
+					$scope.error_status = true;
 					$scope.error_message = data.client_login.message;
 				}
 			}).error(function(data,status){

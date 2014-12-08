@@ -2,7 +2,10 @@
 <div class="text-center" data-ng-if="ecommerce_cat_loading == true">
 	<img  data-ng-src="images/ajax-loader.gif">
 </div>
+<div class="categoryTreeUl" data-ng-if="ecommerce_cat_loading == false" data-ng-bind-unsafe="categoryTree" >
 
+</div>
+<!-- 
 <ul data-ng-if="ecommerce_cat_loading == false">
 
 	<li data-ng-repeat="(ecommerce_cat_id,ecommerce_cat_name) in ecommerce_categories">
@@ -10,5 +13,7 @@
 	</li>
 	
 </ul>
+
+ -->
 
 

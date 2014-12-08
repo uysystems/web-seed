@@ -11,6 +11,7 @@
         	<div class="row">
 			<div class="col-md-6 col-md-offset-3">
 				<h1 class="page-header">Login</h1>
+				<div class="alert alert-danger" data-ng-if="error_status == true ">{{error_message}}</div>
 				<div class="clearfix" >
 					<form data-ng-submit="login()" id="login_form">
 					

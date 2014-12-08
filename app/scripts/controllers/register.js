@@ -1,7 +1,7 @@
 'use strict';
 
 webApp.controller('RegisterCtrl',['$scope','$http', function ($scope,$http) {
-	$scope.error_message = '';
+	$scope.messageFlag = false;
 	$scope.register = function(){
 		var isvalid = validate_form('#registraion_form');
 		if(isvalid == true){
@@ -12,11 +12,21 @@ webApp.controller('RegisterCtrl',['$scope','$http', function ($scope,$http) {
 				method	: 'POST',
 				cache 	: false,
 				headers : {'content-type': 'application/x-www-form-urlencoded'}
-			}).success(function(data,status){
-				$scope.error_message = data.register_client.message;
-			}).error(function(data,status){
-				$scope.error_message = "Network error,please refresh your page."
+			}).success(function(data){
+				
+				if(data.register_client.status == 'success'){
+					$scope.messageStatus = 'success';
+				}else{
+					$scope.messageStatus = 'danger';
+				}
+				$scope.message = data.register_client.message;
+				
+			}).error(function(data){
+				$scope.messageStatus = 'warning';
+				$scope.message = "Network error,please refresh your page."
 			});
+				//set message
+				$scope.messageFlag = true;
 		}
 	}
   }]);

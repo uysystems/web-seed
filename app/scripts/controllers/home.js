@@ -12,7 +12,7 @@ webApp.controller('HomeCtrl',['$scope','$http','$sce', function ($scope,$http,$s
 	$http({
 		method 	: 'get',
 		url		: sp['gallery'],
-		cache 	: false,
+		cache 	: true,
 		headers : {'content-type': 'application/x-www-form-urlencoded'}
 		
 	}).success(function(data){
@@ -26,7 +26,7 @@ webApp.controller('HomeCtrl',['$scope','$http','$sce', function ($scope,$http,$s
 	$http({
 		method 	: 'get',
 		url		: sp['homeblock'],
-		cache 	: false,
+		cache 	: true,
 		headers : {'content-type': 'application/x-www-form-urlencoded'}
 		
 	}).success(function(data){
@@ -44,7 +44,7 @@ webApp.controller('HomeCtrl',['$scope','$http','$sce', function ($scope,$http,$s
 	$http({
 		method 	: 'get',
 		url		: sp['shop_barnds_image'],
-		cache 	: false,
+		cache 	: true,
 		headers : {'content-type': 'application/x-www-form-urlencoded'}
 		
 	}).success(function(data){
@@ -58,9 +58,6 @@ webApp.controller('HomeCtrl',['$scope','$http','$sce', function ($scope,$http,$s
 	$scope.$watch('brandList',function(nv,ov){
 		if(nv!=ov){
 			$scope.brandList = nv;
-			console.log($scope.brandList)
-			//$scope.brandAnimation();
-			
 		}
 	});
 	
