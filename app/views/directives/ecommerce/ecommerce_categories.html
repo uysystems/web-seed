@@ -1,19 +1,15 @@
 <h1 class="title2">Category</h1>
 <div class="text-center" data-ng-if="ecommerce_cat_loading == true">
-	<img  data-ng-src="images/ajax-loader.gif">
+	<img data-ng-src="images/ajax-loader.gif">
 </div>
-<div class="categoryTreeUl" data-ng-if="ecommerce_cat_loading == false" ng-bind-html-unsafe="categoryTree" >
 
-</div>
-<!-- 
+
 <ul data-ng-if="ecommerce_cat_loading == false">
-
-	<li data-ng-repeat="(ecommerce_cat_id,ecommerce_cat_name) in ecommerce_categories">
-		<a data-ng-href="/#/shop/category_view/{{ecommerce_cat_id}}">{{ecommerce_cat_name}}</a>
+	<li data-ng-repeat="(key,categories) in categoryTree | orderBy: toNum(key):reverse" >
+		
+		<a data-ng-href="/#/shop/category_view/{{categoryTree[$index].id}}">{{categoryTree[$index].title}}</a> 
 	</li>
-	
 </ul>
 
- -->
 
 
