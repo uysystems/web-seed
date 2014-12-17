@@ -98,16 +98,7 @@
 										</div>
 									</div>
 								</div>
-								<!-- 
-								<div class="product-size">
-                               		<label>Size : </label>
-                              		<label class="radio-inline">
-                                		<input type="radio" name="size" value="size">L 
-                                	</label>
-                               
-                                </div>
-                                
-                                -->
+								
 								
 								<div class="product-quantity">
 									<label>No of Products : </label>
@@ -128,106 +119,40 @@
 		
 		</div>
 		</form>
+		
+		
 		<!-- Related Products -->
 		<div class="col-md-3">
         <div class="releted-heading">Related Products</div>
+        
+       
 			<div class="row">
-				<div class="col-md-6 col-sm-6 col-xs-12">
-						<div class="product-box releted-product">
-							<div class="product-img">
-								<a href="#">
-									<!--<img data-ng-src="{{shop_image_location}}{{p_image.id}}.{{p_image.extension}}" alt="{{product.Product.title}}" />-->
-                                    <img src="images/timthumb.jpg" />
-								</a>
-							</div>
-							
-							<div class="product-content">
-								<h1>
-									<!--<a data-ng-href="/#/shop/product/details/{{product.Product.id}}">{{product.Product.title}}</a>-->
-                                    <a href="#">PME Jeans Commander PTR980-GDI</a>
-								</h1>
-								<p data-ng-bind-html="shortDescription(product.Product.description,50)"></p>
-								<p class="product-price">
-									<!--<a data-ng-href="/#/shop/product/details/{{product.Product.id}}">€ {{product.Product.price}}</a>-->
-                                    €99.95
-								</p>
-							</div>
-							
+				<div class="col-md-6 col-sm-6 col-xs-12" data-ng-repeat="(ind,relPro) in shop_product_details[0].RelatedProduct"> 
+				
+					<div class="product-box releted-product"  >
+						<div class="product-img">
+							<a data-ng-href="/#/shop/product/details/{{shop_product_details[0].RelatedProduct[$index].Product.id}}">
+								<img data-ng-src="{{shop_image_location}}{{shop_product_details[0].RelatedProduct[$index].ProductImage[0].id}}.{{shop_product_details[0].RelatedProduct[$index].ProductImage[0].extension}}" alt="{{shop_product_details[0].RelatedProduct[$index].Product.title}}" />
+							</a>
 						</div>
-					</div>
-                    
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-						<div class="product-box releted-product">
-							<div class="product-img">
-								<a href="#">
-									<!--<img data-ng-src="{{shop_image_location}}{{p_image.id}}.{{p_image.extension}}" alt="{{product.Product.title}}" />-->
-                                    <img src="images/timthumb.jpg" />
-								</a>
-							</div>
+						
+						<div class="product-content">
+							<h1>
+								<a data-ng-href="/#/shop/product/details/{{shop_product_details[0].RelatedProduct[$index].Product.id}}">{{shop_product_details[0].RelatedProduct[$index].Product.title}}</a>
+                                  
+							</h1>
 							
-							<div class="product-content">
-								<h1>
-									<!--<a data-ng-href="/#/shop/product/details/{{product.Product.id}}">{{product.Product.title}}</a>-->
-                                    <a href="#">PME Jeans Commander PTR980-GDI</a>
-								</h1>
-								<p data-ng-bind-html="shortDescription(product.Product.description,50)"></p>
-								<p class="product-price">
-									<!--<a data-ng-href="/#/shop/product/details/{{product.Product.id}}">€ {{product.Product.price}}</a>-->
-                                    €99.95
-								</p>
-							</div>
-							
+							<!-- <p data-ng-bind-html="shortDescription(product.Product.description,50)"></p>-->
+							<p class="product-price">
+								<a data-ng-href="/#/shop/product/details/{{shop_product_details[0].RelatedProduct[$index].Product.id}}">€ {{shop_product_details[0].RelatedProduct[$index].Product.price}}</a>
+							</p>
 						</div>
+						
 					</div>
-                    
-                    
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-						<div class="product-box releted-product">
-							<div class="product-img">
-								<a href="#">
-									<!--<img data-ng-src="{{shop_image_location}}{{p_image.id}}.{{p_image.extension}}" alt="{{product.Product.title}}" />-->
-                                    <img src="images/timthumb.jpg" />
-								</a>
-							</div>
-							
-							<div class="product-content">
-								<h1>
-									<!--<a data-ng-href="/#/shop/product/details/{{product.Product.id}}">{{product.Product.title}}</a>-->
-                                    <a href="#">PME Jeans Commander PTR980-GDI</a>
-								</h1>
-								<p data-ng-bind-html="shortDescription(product.Product.description,50)"></p>
-								<p class="product-price">
-									<!--<a data-ng-href="/#/shop/product/details/{{product.Product.id}}">€ {{product.Product.price}}</a>-->
-                                    €99.95
-								</p>
-							</div>
-							
-						</div>
-					</div>
-                    
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-						<div class="product-box releted-product">
-							<div class="product-img">
-								<a href="#">
-									<!--<img data-ng-src="{{shop_image_location}}{{p_image.id}}.{{p_image.extension}}" alt="{{product.Product.title}}" />-->
-                                    <img src="images/timthumb.jpg" />
-								</a>
-							</div>
-							
-							<div class="product-content">
-								<h1>
-									<!--<a data-ng-href="/#/shop/product/details/{{product.Product.id}}">{{product.Product.title}}</a>-->
-                                    <a href="#">PME Jeans Commander PTR980-GDI</a>
-								</h1>
-								<p data-ng-bind-html="shortDescription(product.Product.description,50)"></p>
-								<p class="product-price">
-									<!--<a data-ng-href="/#/shop/product/details/{{product.Product.id}}">€ {{product.Product.price}}</a>-->
-                                    €99.95
-								</p>
-							</div>
-							
-						</div>
-					</div>
+				</div>
+				
+				
+              
 			</div>
 		
 		</div>

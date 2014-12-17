@@ -6,7 +6,7 @@ webApp.directive('blogcategories',['$rootScope','$http', function ($scope,$http)
 	$http({
 		method 	: 'post',
 		url		: sp['blog_categories'],
-		cache 	: false,
+		cache 	: true,
 		responseType : 'json',
 		headers : {'content-type': 'application/x-www-form-urlencoded'}
 		

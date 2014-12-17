@@ -8,7 +8,7 @@
  * Main module of the application.
  */
 var sp = new Array();
-sp['host'] 			= 'http://www.timeoutstore.com/uycms_service/';
+sp['host'] 			= 'http://localhost/uycms_service/';
 sp['layout']		= sp['host']+'sites/data_layout.json'
 sp['single_page']	= sp['host']+'sites/web_page_by_id/';
 
@@ -52,7 +52,7 @@ sp['shop_history']		= sp['host']+'ecommerce/sites/shoping_history.json';
 sp['shop_payment_methods'] = sp['host'] + 'ecommerce/sites/payment_methods.json';
 
 // site
-sp['contact_email'] = sp['host'] + 'timeout/sites/contact.json';
+sp['contact_email'] = sp['host'] + 'timeout/sites/sendMail.json';
 sp['lookbook'] = sp['host'] + 'timeout/sites/lookbook.json';
 sp['homeblock'] = sp['host'] + 'timeout/sites/homeblock.json';
 sp['gallery'] = sp['host'] + 'timeout/sites/gallery.json';

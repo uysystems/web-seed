@@ -34,13 +34,14 @@ webApp.controller('ShopCtrl',['$scope','$http','$sce','$routeParams', function (
 	
 	//get data
 	$http({
-		method 	: 'get',
+		method 	: 'POST',
 		url		: post_url,
 		cache 	: false,
 		headers : {'content-type': 'application/x-www-form-urlencoded'}
 		
 	}).success(function(data){
 		$scope.shop_product_list = data.ecommerce_product_list;
+		$scope.pagination = data.paginagtion;
 		$scope.shop_loading = false;
 		$scope.error_message = '';
 	}).error(function(status){
@@ -83,20 +84,41 @@ webApp.controller('ShopCtrl',['$scope','$http','$sce','$routeParams', function (
 		});
 		
 	
-	if(Object.keys(filterRules).length >0){
+		if(Object.keys(filterRules).length >0){
+			$http({
+				method 	: 'POST',
+				url		: sp.getProductsByAttrFilter,
+				data	: {filterRulesQuery : filterRules,catId : $routeParams.catid},
+				cache 	: false,
+				headers : {'content-type': 'application/x-www-form-urlencoded'}
+				
+			}).success(function(data){
+				$scope.shop_product_list = data.ecommerce_product_list;
+				$scope.shop_loading = false;
+			});
+		}
+	}
+	
+	//pagination
+	$scope.loadPage = function(pageNo,$event){
+		$('.pagination li').removeClass('active');
+		$($event.target).parent('li').addClass('active');
 		$http({
 			method 	: 'POST',
-			url		: sp.getProductsByAttrFilter,
-			data	: {filterRulesQuery : filterRules,catId : $routeParams.catid},
+			url		: post_url,
+			data	: {
+				pageNo : pageNo
+			},
 			cache 	: false,
 			headers : {'content-type': 'application/x-www-form-urlencoded'}
 			
 		}).success(function(data){
 			$scope.shop_product_list = data.ecommerce_product_list;
+			$scope.pagination = data.paginagtion;
 			$scope.shop_loading = false;
+			$scope.error_message = '';
+		}).error(function(status){
+			$scope.error_message = 'Network Error occured. Please reload page.';
 		});
-	}
-	//	console.log(filterRules.length)
-		
 	}
 }]);

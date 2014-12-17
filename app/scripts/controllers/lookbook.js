@@ -6,7 +6,7 @@ webApp.controller('LookBookCtrl', ['$scope','$http',function ($scope,$http) {
 	$http({
 		method 	: 'get',
 		url		: sp['lookbook'],
-		cache 	: false,
+		cache 	: true,
 		headers : {'content-type': 'application/x-www-form-urlencoded'}
 		
 	}).success(function(data){

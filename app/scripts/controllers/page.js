@@ -13,8 +13,7 @@ webApp.controller('PageCtrl',['$scope','$http','$routeParams','$sce', function (
 	$http({
 		method 	: 'post',
 		url		: sp['single_page']+$routeParams.id+'.json',
-		cache 	: false,
-		responseType : 'json',
+		cache 	: true,
 		headers : {'content-type': 'application/x-www-form-urlencoded'}
 	}).success(function(data){
 		$scope.page.title = data.single_page[0]['WebPage']['title'];

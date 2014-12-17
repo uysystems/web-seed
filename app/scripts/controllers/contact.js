@@ -9,7 +9,7 @@ webApp.controller('ContactCtrl', ['$scope','$http',function ($scope,$http) {
 	$http({
 		method 	: 'get',
 		url		: sp['shop_stores'],
-		cache 	: false,
+		cache 	: true,
 		headers : {'content-type': 'application/x-www-form-urlencoded'}
 		
 	}).success(function(data){
@@ -17,6 +17,36 @@ webApp.controller('ContactCtrl', ['$scope','$http',function ($scope,$http) {
 	}).error(function(){
 		$scope.error_message = 'Network Error occured. Please reload page.';
 	});
+	
+	//post
+	$scope.message = '';
+	$scope.sendEmail = function($event){
+		var isvalid = validate_form('#contactEmailForm');
+		if(isvalid == true){
+			var formData = $($event.target).serializeArray();
+			console.log(formData);
+			
+			$http({
+				method 	: 'POST',
+				url		: sp['contact_email'],
+				cache 	: false,
+				data	: {data : formData},
+				headers : {'content-type': 'application/x-www-form-urlencoded'}
+			}).success(function(data){
+				if(data.sendEmail.status == true){
+					$scope.serviceClass = 'alert-success';
+				}else{
+					$scope.serviceClass = 'alert-warning';
+				}
+				
+				$scope.message = data.sendEmail.message;
+			}).error(function(){
+				$scope.serviceClass = 'alert-danger'
+				$scope.message = 'Invalid Request';
+				
+			});
+		}
+	}
 	
 }]);
 
@@ -27,6 +57,7 @@ function loadScript() {
 function mapInitialize(){
 	$.ajax({
 		url : sp['shop_stores'],
+		cache : true,
 		beforeSend : function(){
 			$('#google-map').html('<img style="margin-left : 50%; margin-top :30px;" src="images/ajax-loader.gif">');
 		},

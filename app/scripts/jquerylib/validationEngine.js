@@ -28,11 +28,9 @@ function validate_form(formSelector) {
                     });
 
                     //check
-                    if ($(cur_fields).prop('tagName') == 'TEXTAREA') {
-                        var field_value = $(cur_fields).html();
-                    } else {
-                        var field_value = $(cur_fields).val();
-                    }
+                 
+                    var field_value = $(cur_fields).val();
+                    
                     var rule_status = validation[rule_name](field_value, formSelector, data_to_pass);
                     if (rule_status == false) {
                         $(cur_fields).addClass('error');

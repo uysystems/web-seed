@@ -74,6 +74,18 @@
 					</div>
 					
 				</div>
+				
+				<div class="row">
+					<div class="col-md-12">
+						<ul class="pagination">
+							<li data-ng-repeat="(ind,page) in pagination">
+								<span data-ng-click="loadPage({{ind}},$event)">{{ind}}</span>
+							</li>
+							
+						 </ul>
+					</div>
+					
+				</div>
 			</div>
 		</div>
 	</div>

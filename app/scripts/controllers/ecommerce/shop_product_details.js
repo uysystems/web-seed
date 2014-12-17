@@ -53,10 +53,14 @@ webApp.controller('ShopProductDetailsCtrl',['$scope','$http','$sce', '$routePara
 		return $sce.trustAsHtml(data);
 	}
 	
-	$scope.shortDescription = function(data,length){
-		return $sce.trustAsHtml((data.replace(/<\/?[^>]+>/gi, '')).substr(0,length));
+	/*
+	$scope.shortDescription = function(stringText,length){
+		if(stringText.length > 0){
+			return $sce.trustAsHtml((stringText.replace(/<\/?[^>]+>/gi, '')).substr(0,length));
+		}
+		
 	}
-	
+	*/
 	
 	
 	

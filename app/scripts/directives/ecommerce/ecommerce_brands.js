@@ -4,7 +4,7 @@ webApp.directive('ecommercebrands',['$rootScope','$http', function ($scope,$http
 	$http({
 		url		: sp['shop_barnds'],
 		method 	: 'get',
-		cache 	: false,
+		cache 	: true,
 		headers : {'content-type': 'application/x-www-form-urlencoded'}
 		
 	}).success(function(data){

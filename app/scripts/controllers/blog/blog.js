@@ -20,7 +20,6 @@ webApp.controller('BlogCtrl',['$scope','$http','$sce','$routeParams', function (
 		method 	: 'post',
 		url		: post_url,
 		cache 	: false,
-		responseType : 'json',
 		headers : {'content-type': 'application/x-www-form-urlencoded'}
 		
 	}).success(function(data){

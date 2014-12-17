@@ -4,7 +4,7 @@ webApp.directive('bloglatestposts',['$rootScope','$http', function ($scope,$http
 	$http({
 		method 	: 'post',
 		url		: sp['blog_latest_posts'],
-		cache 	: false,
+		cache 	: true,
 		responseType : 'json',
 		headers : {'content-type': 'application/x-www-form-urlencoded'}
 		

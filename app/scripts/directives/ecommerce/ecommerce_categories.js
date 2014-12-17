@@ -12,7 +12,7 @@ webApp.directive('ecommercecategories',['$rootScope','$http','$compile','$sce', 
 			$http({
 				url		: sp['shop_category_tree'],
 				method 	: 'get',
-				cache 	: false,
+				cache 	: true,
 				headers : {'content-type': 'application/x-www-form-urlencoded'}
 			}).success(function(data){
 				$scope.ecommerce_cat_loading = false;
