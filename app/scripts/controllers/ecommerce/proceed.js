@@ -78,12 +78,12 @@ webApp.controller('ShopProceedCtrl',['$scope','$http','$sce','$routeParams','$wi
   
     $scope.totalCost = 0;
     angular.forEach($scope.PorductsInCart,function(val,index){
-    	 $scope.totalCost += parseFloat(val.cost);
+    	 $scope.totalCost += parseFloat(val.cost).toFixed(2);
     });
 	$scope.orderNow = function(){
     	var total_price = 0;
         angular.forEach($scope.PorductsInCart,function(val,ind){
-        	total_price += parseFloat(val.cost);
+        	total_price += parseFloat(val.cost).toFixed(2);
         });
         
        //process shipping details 

@@ -33,7 +33,7 @@
 					</div>
 					
 					<div class="item"  data-ng-if="$index != 0" data-ng-repeat="(ind,val) in brandListImages">
-						<img src="{{shop_brand_image_location}}{{val.Brand.id}}.{{val.Brand.image_extension}}" alt="{{val.Brand.title}}" class="img img-responsive center-block" >
+						<img data-ng-src="{{shop_brand_image_location}}{{val.Brand.id}}.{{val.Brand.image_extension}}" alt="{{val.Brand.title}}" class="img img-responsive center-block" >
 						<div class="carousel-caption"><strong>{{val.Brand.title}}</strong></div>
 					</div>
 					

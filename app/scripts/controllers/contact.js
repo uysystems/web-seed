@@ -24,8 +24,6 @@ webApp.controller('ContactCtrl', ['$scope','$http',function ($scope,$http) {
 		var isvalid = validate_form('#contactEmailForm');
 		if(isvalid == true){
 			var formData = $($event.target).serializeArray();
-			console.log(formData);
-			
 			$http({
 				method 	: 'POST',
 				url		: sp['contact_email'],

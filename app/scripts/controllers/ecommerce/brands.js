@@ -17,7 +17,7 @@ webApp.controller('ShopBrandsCtrl',['$scope','$http','$sce','$routeParams', func
 	$http({
 		method 	: 'get',
 		url		: sp['shop_barnds_image'],
-		cache 	: false,
+		cache 	: true,
 		headers : {'content-type': 'application/x-www-form-urlencoded'}
 		
 	}).success(function(data){
@@ -30,7 +30,7 @@ webApp.controller('ShopBrandsCtrl',['$scope','$http','$sce','$routeParams', func
 	$http({
 		method 	: 'get',
 		url		: sp['shop_barnds'],
-		cache 	: false,
+		cache 	: true,
 		headers : {'content-type': 'application/x-www-form-urlencoded'}
 		
 	}).success(function(data){

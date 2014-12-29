@@ -9,6 +9,7 @@
  */
 var sp = new Array();
 sp['host'] 			= 'http://localhost/uycms_service/';
+//sp['host'] 			= 'http://www.timeoutstore.com/uycms_service/';
 sp['layout']		= sp['host']+'sites/data_layout.json'
 sp['single_page']	= sp['host']+'sites/web_page_by_id/';
 
@@ -43,6 +44,7 @@ sp['shop_product_attributes']	= sp['host']+'ecommerce/sites/product_attribute_li
 sp['shop_stores']				= sp['host']+'ecommerce/sites/getStores.json';
 sp.getAttrByCatId				= sp['host']+'ecommerce/sites/getAttrByCatId.json';
 sp.getProductsByAttrFilter		= sp['host']+'ecommerce/sites/getProductsByAttrFilter.json';
+sp.shopDeals					= sp['host']+'ecommerce/sites/random_deal_list.json';
 
 
 sp['shop_order']		= sp['host']+'ecommerce/sites/order.json';
@@ -91,6 +93,10 @@ var webApp = angular.module('webSeedApp', [
       .when('/shop', {
         templateUrl: 'views/site/ecommerce/shop.html',
         controller: 'ShopCtrl'
+      })
+      .when('/deal', {
+        templateUrl: 'views/site/ecommerce/deal.html',
+        controller: 'DealCtrl'
       })
       .when('/shop/brands', {
     	  templateUrl: 'views/site/ecommerce/brands.html',

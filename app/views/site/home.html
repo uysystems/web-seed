@@ -33,7 +33,7 @@
 
      <div class="col-md-4 col-sm-4 col-xs-12" data-ng-repeat ="(ind,val) in homeblock">
          <div class="homeproductholder">
-         	<a data-ng-href ="{{val.HomeBlock.url}}"><img src="{{block_images}}{{val.HomeBlock.id}}.{{val.HomeBlock.image_extension}}" /></a>
+         	<a data-ng-href ="{{val.HomeBlock.url}}"><img data-ng-src="{{block_images}}{{val.HomeBlock.id}}.{{val.HomeBlock.image_extension}}" /></a>
          	<a data-ng-href ="{{val.HomeBlock.url}}"><p class="producttxt">{{val.HomeBlock.title}}</p></a>
          </div>
      </div>

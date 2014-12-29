@@ -52,6 +52,7 @@ function loadScript() {
 function mapInitialize(){
 	$.ajax({
 		url : sp['shop_stores'],
+		cache : true,
 		beforeSend : function(){
 			$('#google-map').html('<img style="margin-left : 50%; margin-top :30px;" src="images/ajax-loader.gif">');
 		},

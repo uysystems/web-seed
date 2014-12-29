@@ -872,3 +872,47 @@ body:hover .loading{display:block;}
 	text-align:left;
 	left:2%;
 }
+
+
+
+.product-box .product-content {
+    height: auto;
+    min-height: 128px;
+    text-align: center;
+}
+
+ .product-details-top{
+ position:relative;}
+ 
+ 
+ .discount-offer{
+ position:absolute;
+ right:0;
+ top:0;
+ width:60px;
+ height:60px;
+ background:url(../images/discount.png) no-repeat;}
+.discount-offer p {
+    color: #fff;
+    font-size: 1em;
+    padding-top: 14px;
+    text-align: center;
+}
+.discount-offer p strong {
+    display:block;
+}
+.view-cart {
+    background: url("../images/view-cart.png") no-repeat scroll 6px center #428bca;
+    padding: 15px 28px 10px 38px;
+}
+.view-cart:hover{
+    background: url("../images/view-cart.png") no-repeat scroll 6px center #2a71af;
+    color:#fff;
+}
+@media all and (max-width:360px){
+ .add-to-cart{
+    padding: 15px 18px 10px;}}
+    
+   .discount-amount{
+   color : red;
+   }

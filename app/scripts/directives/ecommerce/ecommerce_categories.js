@@ -1,13 +1,9 @@
 'use strict';
 webApp.directive('ecommercecategories',['$rootScope','$http','$compile','$sce', function ($scope,$http,$compile,$sce) {
-
-	
-	
 	return {
-		restrict: 'EA',
+		restrict: 'E',
 		transclude: true,
-		link : function(scope, element, attrs){
-			
+		controller : function(){
 			$scope.ecommerce_cat_loading = true;
 			$http({
 				url		: sp['shop_category_tree'],
@@ -21,21 +17,12 @@ webApp.directive('ecommercecategories',['$rootScope','$http','$compile','$sce', 
 			}).error(function(status){
 				$scope.error_message = 'Network Error occured. Please reload page.';
 			});
-			scope.$watch('categoryTreeData',function(nv,ov){
+			$scope.$watch('categoryTreeData',function(nv,ov){
 				$scope.categoryTree = nv;
 			});
 		},
-		
 		templateUrl : 'views/directives/ecommerce/ecommerce_categories.html'
-		
-		    
 	};
-	
-	
-	
-	
-	
-	
   }]);
 
 //tree generator

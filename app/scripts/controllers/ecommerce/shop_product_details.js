@@ -21,7 +21,6 @@ webApp.controller('ShopProductDetailsCtrl',['$scope','$http','$sce', '$routePara
 		headers : {'content-type': 'application/x-www-form-urlencoded'}
 		
 	}).success(function(data){
-		console.log(data)
 		//get initial data according to the product type
 		$http({
 			method	: 'post',
@@ -30,12 +29,11 @@ webApp.controller('ShopProductDetailsCtrl',['$scope','$http','$sce', '$routePara
 			cache 	: false,
 			headers : {'content-type': 'application/x-www-form-urlencoded'}
 		}).success(function(attribute_data){
-			console.log(attribute_data)
 			//assign values
 			$scope.AllAttributeByType = attribute_data.ecommerce_product_attributes;
 			$scope.shop_product_details = data.ecommerce_product_details;
 			$scope.product_base_price = $scope.shop_product_details[0].Product.price;
-			$scope.product_price = $scope.product_base_price;
+			$scope.product_price = parseFloat($scope.product_base_price,2);
 			$scope.quantity = 1;
 			
 			$scope.shop_product_details_loading = false;
@@ -120,21 +118,48 @@ webApp.controller('ShopProductDetailsCtrl',['$scope','$http','$sce', '$routePara
 					additional_price += parseFloat($(this).attr('data-additional-price'));
 				};
 			});
-			var final_unit_price =parseFloat(base_price) + additional_price;
-			$scope.product_price = $scope.quantity * final_unit_price;
+			var final_unit_price =parseFloat(base_price,2) + additional_price;
+			$scope.product_price = parseFloat($scope.quantity * final_unit_price,2);
 		}
 	}
 	// add to cart
 	$scope.uycart;
 	$scope.addToCart = function($event){
-
+		//animate
+		var cart = $('.productNoInCart');
+			var imgtodrag = $('.current_image');
+			if (imgtodrag) {
+			    var imgclone = imgtodrag.clone()
+			        .offset({
+			        top: imgtodrag.offset().top,
+			        left: imgtodrag.offset().left
+			    }).css({
+			        'opacity': '0.5',
+			            'position': 'absolute',
+			            'height': '150px',
+			            'width': '150px',
+			            'z-index': '100'
+			    }).appendTo($('body'))
+			        .animate({
+			        'top': cart.offset().top + 10,
+			            'left': cart.offset().left + 10,
+			            'width': 75,
+			            'height': 75
+			    }, 500);
+			    imgclone.animate({
+			        'width': 0,
+			            'height': 0
+			    }, function () {
+			        $(this).detach()
+			    });
+			}
 		//process new item
+		
 		var new_cart_item =$($event.target).serializeArray();
 		var new_cart_item_data = new Object();
 		new_cart_item_data.attributes = new Object();
 		$.each(new_cart_item,function(ind,val){
 			//get attribute
-		
 			var is_attribe = val['name'].split('.');
 			if(is_attribe[0]=='attribute'){
 				new_cart_item_data.attributes[is_attribe[1]] = val['value']
@@ -144,6 +169,8 @@ webApp.controller('ShopProductDetailsCtrl',['$scope','$http','$sce', '$routePara
 		})
 		
 		new_cart_item_data['unitPrice'] = new_cart_item_data['cost'] / new_cart_item_data['quantity'];
+		new_cart_item_data['discount'] = $scope.shop_product_details[0].Product.options.discount;
+		new_cart_item_data['productCode'] = $scope.shop_product_details[0].Product.product_code;
 		
 		var current_cart = $window.sessionStorage.getItem('uycart');
 		var new_cart = new Array();
@@ -158,6 +185,9 @@ webApp.controller('ShopProductDetailsCtrl',['$scope','$http','$sce', '$routePara
 			$window.sessionStorage.setItem('uycart',JSON.stringify(current_cart));
 		}
 		$scope.uycart = $window.sessionStorage.getItem('uycart');
+		
+		
+		
 	}
 	
 	//process cart dom
@@ -167,7 +197,7 @@ webApp.controller('ShopProductDetailsCtrl',['$scope','$http','$sce', '$routePara
 		var total_value = 0;
 		var cartHtml ='';
 		$.each(cart_data,function(ind,val){
-			total_value += parseFloat(val.cost);
+			total_value += parseFloat(val.cost,2);
 		});
 		$('.totalPriceInCart').html('$'+total_value)
 	}
