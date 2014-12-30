@@ -8,8 +8,28 @@
  * Controller of the webSeedApp
  */
 webApp.controller('ShopBuyCtrl',['$scope','$http','$sce','$routeParams','$window','$route', function ($scope,$http,$sce,$routeParams,$window,$route) {
-	var cart_products = $window.sessionStorage.getItem('uycart');
-    $scope.PorductsInCart = JSON.parse(cart_products);
+	var cart_products = JSON.parse($window.sessionStorage.getItem('uycart'));
+	var cartItems = new Object();
+	$.each(cart_products,function(ind,val){
+		val.normalPrice = parseFloat(val.cost).toFixed(2);
+		val.totalDiscount = parseFloat(val.discount[2].finalDiscount).toFixed(2);
+		val.cost = (parseFloat(val.normalPrice - val.totalDiscount)).toFixed(2);
+		cartItems[ind] = val;
+	})
+	
+	/*
+	 * 
+	 * 
+	 * 
+	 * val.quantity = current_quantity;
+			val.normalPrice = parseFloat(new_total).toFixed(2);
+			val.totalDiscount = parseFloat(totalDiscount).toFixed(2);
+			val.cost = (parseFloat(val.normalPrice - val.totalDiscount)).toFixed(2);
+	 * 
+	 * 
+	 * 
+	 */
+    $scope.PorductsInCart = cartItems;
    
     //remove from cart
     $scope.removeFromCart = function(item_no){
@@ -49,7 +69,7 @@ webApp.controller('ShopBuyCtrl',['$scope','$http','$sce','$routeParams','$window
         $scope.totalCost = parseFloat($scope.totalCost).toFixed(2);
     });
     
-    //
+    //discounts
      var discountData = new Object();
      $scope.discounts = function(data,returnType){
     	var quantity = data.quantity;
@@ -74,7 +94,7 @@ webApp.controller('ShopBuyCtrl',['$scope','$http','$sce','$routeParams','$window
     }
      
      
-     
+     //total discount 
      $scope.totalDiscounctCalculator = function(){
     		var totalDiscount = 0;
     		$.each($('.discount'),function(ind,val){
@@ -83,10 +103,13 @@ webApp.controller('ShopBuyCtrl',['$scope','$http','$sce','$routeParams','$window
     		return parseFloat(totalDiscount).toFixed(2);
     	}
      
+     //subtotal
      $scope.subTotal = function(cost,discount){
-    	 return (parseFloat(cost-discount)).toFixed(2);
+    	 return (parseFloat(cost - discount)).toFixed(2);
      }
      
+     
+     //grunt total
      $scope.grantTotal= function(){
     	 var totalCost = $('.total_cost').text();
     	 var totalDiscount = $('.total_discount').text();
@@ -114,7 +137,7 @@ var updatePrice = function(dom){
 			val.quantity = current_quantity;
 			val.normalPrice = parseFloat(new_total).toFixed(2);
 			val.totalDiscount = parseFloat(totalDiscount).toFixed(2);
-			//val.cost = (parseFloat(val.normalPrice - val.totalDiscount)).toFixed(2);
+			val.cost = (parseFloat(val.normalPrice - val.totalDiscount)).toFixed(2);
 			$($(dom).closest('td').next('td').next('td').next('td')).html(val.cost);
 			new_cart.push(val)
 		}else{

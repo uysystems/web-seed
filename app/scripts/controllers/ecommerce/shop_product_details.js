@@ -158,6 +158,10 @@ webApp.controller('ShopProductDetailsCtrl',['$scope','$http','$sce', '$routePara
 		new_cart_item_data['discount'] = $scope.shop_product_details[0].Product.options.discount;
 		new_cart_item_data['productCode'] = $scope.shop_product_details[0].Product.product_code;
 		
+		//
+		
+		
+		
 		var current_cart = $window.sessionStorage.getItem('uycart');
 		var new_cart = new Array();
 		

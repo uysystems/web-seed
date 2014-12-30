@@ -40,14 +40,13 @@
 											<li data-ng-repeat="(name,value) in products.attributes">{{name}} : {{value}}</li>
 										</ul>
 									</td>
-									<td>{{products.unitPrice}} EUR</td>
+									<td>{{products.unitPrice}}</td>
 									<td><input type="number"  min="1" value="{{products.quantity}}" data-cartIndex = "{{$index}}" data-unitPrice = "{{products.unitPrice}}" data-unitDiscount="{{discounts(products,'unit')}}" onchange="updatePrice(this)"></td>
-									<td>{{products.cost}}</td>
+									<td>{{products.normalPrice}}</td>
 									<td class="discount discountAmount_{{$index}}">
 									{{discounts(products,'total')}}</td>
 									<td class="payable_{{$index}}">
-									 {{subTotal(products.cost,discounts(products,'total'))}}
-									
+									 {{subTotal(products.normalPrice,discounts(products,'total'))}}
 									</td>
 							       	<td>
 							       		<span class="btn btn-danger" data-ng-click="removeFromCart({{$index}})" >Delete</span>
