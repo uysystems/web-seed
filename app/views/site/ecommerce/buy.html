@@ -17,15 +17,15 @@
 							<thead>
 								<tr>
 									<th>No</th>
-									<th>Image</th>
 									<th>Code</th>
+									<th>Image</th>
 									<th>Title</th>
 									<th>Attributes</th>
 									<th>Unit Price</th>
 									<th>Quantity</th>
 									<th>Price</th>
 									<th>Discount</th>
-									<th>Total</th>
+									<th>Sub Total</th>
 									<th>Actions</th>
 								</tr>
 							</thead>
@@ -41,11 +41,14 @@
 										</ul>
 									</td>
 									<td>{{products.unitPrice}} EUR</td>
-									<td><input type="number"  min="1" value="{{products.quantity}}" data-cartIndex = "{{$index}}" data-unitPrice = "{{products.cost/products.quantity}}" onchange="updatePrice(this)"></td>
-									<td>{{products.cost}} EUR</td>
-									<td>
-									{{discounts(products)}}</td>
-									<td>Total</td>
+									<td><input type="number"  min="1" value="{{products.quantity}}" data-cartIndex = "{{$index}}" data-unitPrice = "{{products.unitPrice}}" data-unitDiscount="{{discounts(products,'unit')}}" onchange="updatePrice(this)"></td>
+									<td>{{products.cost}}</td>
+									<td class="discount discountAmount_{{$index}}">
+									{{discounts(products,'total')}}</td>
+									<td class="payable_{{$index}}">
+									 {{subTotal(products.cost,discounts(products,'total'))}}
+									
+									</td>
 							       	<td>
 							       		<span class="btn btn-danger" data-ng-click="removeFromCart({{$index}})" >Delete</span>
 							       	</td>
@@ -55,10 +58,10 @@
 										<strong>Total</strong>
 									</td>
 									<td >
-										<i class="total_cost">{{totalCost}}</i> EUR
+										<i class="total_cost">{{totalCost}}</i>
 									</td> 
-									<td>discounts</td>
-									<td colspan="2">payable</td>
+									<td class="total_discount">{{totalDiscounctCalculator()}}</td>
+									<td colspan="2" class="grantTotal">{{grantTotal()}}</td>
 									
 								</tr>
 							</tbody>

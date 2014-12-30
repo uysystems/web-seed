@@ -51,17 +51,6 @@ webApp.controller('ShopProductDetailsCtrl',['$scope','$http','$sce', '$routePara
 		return $sce.trustAsHtml(data);
 	}
 	
-	/*
-	$scope.shortDescription = function(stringText,length){
-		if(stringText.length > 0){
-			return $sce.trustAsHtml((stringText.replace(/<\/?[^>]+>/gi, '')).substr(0,length));
-		}
-		
-	}
-	*/
-	
-	
-	
 	//gallery image change
 	$scope.updateThumb = function($event){
 		$('.current_image').attr('src',$($event.target).attr('src')); 
@@ -79,9 +68,6 @@ webApp.controller('ShopProductDetailsCtrl',['$scope','$http','$sce', '$routePara
 		$('.uy-zoomer').remove();
 		//$($event.target).parent().css({'position':'relative'});
 		$($event.target).parent().append(zoomView(img_data));
-		
-		
-		
 	}
 	
 	$scope.destroyZoom = function(){
@@ -177,7 +163,6 @@ webApp.controller('ShopProductDetailsCtrl',['$scope','$http','$sce', '$routePara
 		
 		if(current_cart == null){
 			new_cart[0] = new_cart_item_data;
-			
 			$window.sessionStorage.setItem('uycart',JSON.stringify(new_cart));
 		}else{
 			current_cart = JSON.parse(current_cart);
@@ -185,9 +170,6 @@ webApp.controller('ShopProductDetailsCtrl',['$scope','$http','$sce', '$routePara
 			$window.sessionStorage.setItem('uycart',JSON.stringify(current_cart));
 		}
 		$scope.uycart = $window.sessionStorage.getItem('uycart');
-		
-		
-		
 	}
 	
 	//process cart dom
@@ -207,10 +189,4 @@ webApp.controller('ShopProductDetailsCtrl',['$scope','$http','$sce', '$routePara
 			processDomForCart()
 		}
 	})
-	
-	
-
-	
-	
-	
 }]);

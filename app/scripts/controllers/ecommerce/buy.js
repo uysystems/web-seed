@@ -11,12 +11,6 @@ webApp.controller('ShopBuyCtrl',['$scope','$http','$sce','$routeParams','$window
 	var cart_products = $window.sessionStorage.getItem('uycart');
     $scope.PorductsInCart = JSON.parse(cart_products);
    
-    /*$scope.totalCost = 0;
-    angular.forEach($scope.PorductsInCart,function(val,index){
-    	 $scope.totalCost += parseFloat(val.cost).toFixed(2);
-    });
-    */
-    
     //remove from cart
     $scope.removeFromCart = function(item_no){
     	var current_cart = $window.sessionStorage.getItem('uycart');
@@ -56,26 +50,60 @@ webApp.controller('ShopBuyCtrl',['$scope','$http','$sce','$routeParams','$window
     });
     
     //
-    $scope.discounts = function(data){
+     var discountData = new Object();
+     $scope.discounts = function(data,returnType){
     	var quantity = data.quantity;
     	var unitPrice = data.unitPrice;
     	var discount = data.discount;
-    	if(discount[0].type = 'fixed'){
-    		var totalDiscount = parseFloat(discount[1].amount*quantity).toFixed(2)
-    	}else if(discount[0].type = 'percentage'){
-    			var totalDiscount = parseFloat(((parseFloat(unitPrice) * parseFloat(discount[1].amount))/100) * quantity).toFixed(2)
+    	if(discount[0].type == 'fixed'){
+    		discountData.unitDiscount =  parseFloat(discount[1].amount).toFixed(2);
+    		discountData.totalDiscount = parseFloat(discount[1].amount*quantity).toFixed(2);
+    	}else if(discount[0].type == 'percentage'){
+    		discountData.unitDiscount =  parseFloat((parseFloat(unitPrice) * parseFloat(discount[1].amount))/100).toFixed(2);
+    		discountData.totalDiscount = parseFloat(((parseFloat(unitPrice) * parseFloat(discount[1].amount))/100) * quantity).toFixed(2)
+    	}else{
+    		discountData.unitDiscount =  0;
+    		discountData.totalDiscount = 0;
     	}
-    	return totalDiscount;
+    	
+    	if(returnType == 'unit'){
+    		return discountData.unitDiscount;
+    	}else{
+    		return discountData.totalDiscount;
+    	}
     }
-  
-    
+     
+     
+     
+     $scope.totalDiscounctCalculator = function(){
+    		var totalDiscount = 0;
+    		$.each($('.discount'),function(ind,val){
+    			totalDiscount += parseFloat($(val).text());
+    		});
+    		return parseFloat(totalDiscount).toFixed(2);
+    	}
+     
+     $scope.subTotal = function(cost,discount){
+    	 return (parseFloat(cost-discount)).toFixed(2);
+     }
+     
+     $scope.grantTotal= function(){
+    	 var totalCost = $('.total_cost').text();
+    	 var totalDiscount = $('.total_discount').text();
+    	 return (parseFloat(parseFloat(totalCost) - parseFloat(totalDiscount))).toFixed(2);
+    	 
+     }
 }]);
 
 var updatePrice = function(dom){
+	
 	var current_quantity = $(dom).val();
-	var unit_price = $(dom).attr('data-unitPrice')
+	var unit_price = $(dom).attr('data-unitPrice');
+	var unitDiscount = $(dom).attr('data-unitDiscount');
+	var totalDiscount = parseFloat(unitDiscount*current_quantity).toFixed(2);
 	var new_total = parseFloat(current_quantity * parseFloat(unit_price).toFixed(2)).toFixed(2);;
-	$($(dom).closest('td').next('td')).html(new_total+" EUR");
+	$($(dom).closest('td').next('td')).html(new_total);
+	$($(dom).closest('td').next('td').next('td')).html(totalDiscount);
 	
 	//update cart
 	var updated_index = $(dom).attr('data-cartIndex');
@@ -84,7 +112,10 @@ var updatePrice = function(dom){
 	$.each(currnet_cart, function(index,val){
 		if(index == updated_index){
 			val.quantity = current_quantity;
-			val.cost = parseFloat(new_total).toFixed(2);
+			val.normalPrice = parseFloat(new_total).toFixed(2);
+			val.totalDiscount = parseFloat(totalDiscount).toFixed(2);
+			//val.cost = (parseFloat(val.normalPrice - val.totalDiscount)).toFixed(2);
+			$($(dom).closest('td').next('td').next('td').next('td')).html(val.cost);
 			new_cart.push(val)
 		}else{
 			new_cart.push(val)
@@ -95,12 +126,35 @@ var updatePrice = function(dom){
 	
 	
 	//total cost for all products
-	var total_cart_cost = 0;
+	var total_normal_cart_cost = 0;
 	angular.forEach(new_cart,function(val,index){
-		total_cart_cost += parseFloat(val.cost)
+		total_normal_cart_cost += parseFloat(val.normalPrice)
 	})
 	
-	$('.total_cost').html(parseFloat(total_cart_cost).toFixed(2));
+	//total discount
+	$('.total_discount').html(totalDiscounctCalculator())
+	
+	//total cost
+	$('.total_cost').html(parseFloat(total_normal_cart_cost).toFixed(2));
+	
+	//grant Total
+	$('.grantTotal').html(grantTotalCalculator());
+	
 }
+
+var totalDiscounctCalculator = function(){
+	var totalDiscount = 0;
+	$.each($('.discount'),function(ind,val){
+		totalDiscount += parseFloat($(val).text());
+	});
+	return parseFloat(totalDiscount).toFixed(2);
+}
+
+var grantTotalCalculator = function(){
+	 var totalCost = $('.total_cost').text();
+	 var totalDiscount = $('.total_discount').text();
+	 return (parseFloat(parseFloat(totalCost) - parseFloat(totalDiscount))).toFixed(2);
+}
+
 
 

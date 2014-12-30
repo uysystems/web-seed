@@ -32,58 +32,35 @@ webApp.controller('ShopProceedCtrl',['$scope','$http','$sce','$routeParams','$wi
 		}
 	}
 	
-	
-		
-	
-	
-	//get payment methods
-	/*
-	$http({
-		method 	: 'get',
-		url		: sp['shop_payment_methods'],
-		cache 	: false,
-		responseType : 'json',
-		headers : {'content-type': 'application/x-www-form-urlencoded'}
-		
-	}).success(function(data){
-		
-		$scope.payment_methods = data.ecommerce_payment_methods
-		
-	}).error(function(status){
-		$scope.error_message = 'Network Error occured. Please reload page.';
-	});
-	*/
 	$scope.confirmNow = function(){
 		var isvalid = validate_form("#confirmOrderForm");
 		$('#confirmModal').modal('hide');  
 		if(isvalid == true){
-			console.log ('ready to submit');
-			
 			//make readonly for shoping address
 			var all_inputs = $('.proceed_input');
 			$.each(all_inputs,function(ind,val){
 				$(val).attr('readonly',true)
 			})
-			
 			$('.confirm').hide();
 			$('.checkoout').show();
-			
 		}
-		
 	}
 	
 	//order now
 	var cart_products = $window.sessionStorage.getItem('uycart');
     $scope.PorductsInCart = JSON.parse(cart_products);
+    console.log($scope.PorductsInCart);
   
-    $scope.totalCost = 0;
+    var totalCost = 0;
     angular.forEach($scope.PorductsInCart,function(val,index){
-    	 $scope.totalCost += parseFloat(val.cost).toFixed(2);
+    	 totalCost += parseFloat(val.cost);
+    	 $scope.totalCost = (totalCost).toFixed(2)
     });
+    
 	$scope.orderNow = function(){
     	var total_price = 0;
         angular.forEach($scope.PorductsInCart,function(val,ind){
-        	total_price += parseFloat(val.cost).toFixed(2);
+        	total_price += (parseFloat(val.cost)).toFixed(2);
         });
         
        //process shipping details 
