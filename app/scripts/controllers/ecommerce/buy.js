@@ -17,19 +17,8 @@ webApp.controller('ShopBuyCtrl',['$scope','$http','$sce','$routeParams','$window
 		cartItems[ind] = val;
 	})
 	
-	/*
-	 * 
-	 * 
-	 * 
-	 * val.quantity = current_quantity;
-			val.normalPrice = parseFloat(new_total).toFixed(2);
-			val.totalDiscount = parseFloat(totalDiscount).toFixed(2);
-			val.cost = (parseFloat(val.normalPrice - val.totalDiscount)).toFixed(2);
-	 * 
-	 * 
-	 * 
-	 */
     $scope.PorductsInCart = cartItems;
+	//window.sessionStorage.setItem('uycart',JSON.stringify(cartItems));
    
     //remove from cart
     $scope.removeFromCart = function(item_no){
