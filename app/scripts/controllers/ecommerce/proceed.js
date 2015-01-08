@@ -13,6 +13,47 @@ webApp.controller('ShopProceedCtrl',['$scope','$http','$sce','$routeParams','$wi
 	if($window.sessionStorage.getItem('loginDetails') == null){
 		$window.location.href = '/#/login/proceed';
 	}else{
+		
+		//get country list
+		$scope.shippingDetails = new Object();
+		$scope.country = '';
+		$http({
+    		method 	: 'post',
+    		url		: sp['get_shipping_charge'],
+    		cache 	: false,
+    		headers : {'content-type': 'application/x-www-form-urlencoded'}
+    	}).success(function(data){
+			if(data.shippingDetails.status == true){
+				
+				$scope.shippingDetails.country = data.shippingDetails.shippingMatrix.country;
+				$scope.shippingDetails.city = data.shippingDetails.shippingMatrix.city;
+				$scope.shippingDetails.channels = data.shippingDetails.shippingMatrix.channels;
+			}
+    	});
+		
+		//watch for shipping details
+		$scope.$watch('shippingDetails',function(nv,ov){
+			if(nv !== ov){
+				$scope.shippingDetails = nv;
+			}
+		});
+		//watch for inputs : country and city
+		$scope.$watch('country',function(nv,ov){
+			if(nv !== ov){
+				$scope.country = nv;
+			}
+		});
+		
+		$scope.$watch('city',function(nv,ov){
+			if(nv !== ov){
+				$scope.city = nv;
+			}
+		});
+		
+		$scope.onChangeCountry = function(){
+			console.log($scope.country)
+		}
+		
 	
 		$('.checkoout').hide();
 		//
@@ -42,23 +83,16 @@ webApp.controller('ShopProceedCtrl',['$scope','$http','$sce','$routeParams','$wi
 					$(val).attr('readonly',true)
 				});
 				
-				//get location
-				var geocoder = new google.maps.Geocoder();
-
-				geocoder.geocode( { 'address': 'dhaka,bangladesh'}, function(results, status) {
-						console.log(results)
-				});
+					
 				
-				
-				$('.confirm').hide();
-				$('.checkoout').show();
+				//$('.confirm').hide();
+				//$('.checkoout').show();
 			}
 		}
 		
 		//order now
 		var cart_products = $window.sessionStorage.getItem('uycart');
 	    $scope.PorductsInCart = JSON.parse(cart_products);
-	    console.log($scope.PorductsInCart);
 	  
 	    var totalCost = 0;
 	    angular.forEach($scope.PorductsInCart,function(val,index){

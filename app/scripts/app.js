@@ -52,6 +52,7 @@ sp['shop_order_status']		= sp['host']+'ecommerce/sites/order_update_by_icepay.js
 sp['shop_history']		= sp['host']+'ecommerce/sites/shoping_history.json';
 
 sp['shop_payment_methods'] = sp['host'] + 'ecommerce/sites/payment_methods.json';
+sp['get_shipping_charge']  = sp['host'] + 'shipping/apis/get_shipping_cost.json';
 
 // site
 sp['contact_email'] = sp['host'] + 'timeout/sites/sendMail.json';
@@ -182,7 +183,7 @@ var webApp = angular.module('webSeedApp', [
   
   $(document).ready(function(){
 	  $('img').on('load',function(){
-        console.log('foo')
+      //  console.log('foo')
 	  });
 	  
 	 

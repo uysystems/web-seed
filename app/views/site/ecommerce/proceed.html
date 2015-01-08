@@ -33,6 +33,8 @@
 				    <input type="text" class="form-control" readonly value="{{user_details.address_line_2}}">
 				  </div>
 				  
+				 
+				  
 				  <div class="form-group">
 				    <label for="zip">Zip</label>
 				    <input type="text" class="form-control" readonly value="{{user_details.zip}}">
@@ -64,6 +66,19 @@
 						<label for="address">Address line 2</label>
 						<input type="text"  name="shipping_address_2" placeholder="address line 2" data-validate = '[{"not_empty":[{"message":"Please input your address (line 2)."}]}]' class="form-control proceed_input" class="form-control proceed_input" data-ng-model="address_line_2">
 					</div>
+					
+					<div class="form-group">
+						<label for="address">Country</label>
+						<select name="country" data-ng-model="country" data-ng-options="name for country in shippingDetails.country">
+							
+						</select>
+					</div>
+					
+					<div class="form-group">
+						<label for="address">City</label>
+						<select name="country" data-ng-model="city"  data-ng-change="onChangeCountry()"></select>
+					</div>
+				 
 					<div class="form-group">
 						<label for="address">Zip</label>
 						<input name="zip" placeholder="Zip Code" data-validate = '[{"not_empty":[{"message":"Please input your zip code"}]}]' type="text" class="form-control proceed_input" data-ng-model="zip" >
@@ -112,6 +127,10 @@
 						    <td colspan="3"><strong>Grand Total</strong></td>
 						    <td colspan="1"><strong>{{totalCost}} EUR</strong></td>
 						  </tr>
+						  <tr>
+						    <td colspan="3"><strong>Shipping Cost</strong></td>
+						    <td colspan="1"><strong>{{shippingCost}}</strong></td>
+					    </tr>
 						</tbody>
 				   </table>
 			 </div>
@@ -126,20 +145,6 @@
 	
 </div>
 		
-		<!-- 
-		<div class="col-md-6">
-				<h3>Select Payment Methods</h3>
-				<ul class="list" >
-					<li  data-ng-repeat="(type,name) in payment_methods">
-						<input type="radio" class="proceed_input_payment" name="paymentMethod" value="{{type}}"> {{name}}
-					</li>
-				</ul>
-		</div>
-		
-		-->
-
-
-	
 	<!-- cart details -->
     
     <div>
